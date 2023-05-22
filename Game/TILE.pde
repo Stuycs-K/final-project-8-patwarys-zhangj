@@ -1,3 +1,4 @@
+public class TILE{
 boolean Bomb, flagged, revealed ;
 int NumBomb ;
 
