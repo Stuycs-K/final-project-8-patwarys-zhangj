@@ -1,6 +1,6 @@
 # Work Log
 
-## GROUP MEMBER 1
+## Sajid Patwary
 
 ### date x
 
@@ -11,11 +11,10 @@ info
 info
 
 
-## GROUP MEMBER 2
+## Junling Zhang
 
-### date x
-
-info
+### 5/22/23
+Created the TILE class
 
 ### date y
 
