@@ -1,8 +1,8 @@
-public class TILE{
+class TILE{
 boolean Bomb, flagged, revealed ;
 int NumBomb ;
 
-public TILE(boolean bomb, numBomb){
+public TILE(boolean bomb, int numBomb){
   Bomb = bomb ;
   NumBomb = numBomb ;
   flagged = false ;
@@ -10,7 +10,7 @@ public TILE(boolean bomb, numBomb){
 }
 
 public void flag(){
-  flag = !flag ;
+  flagged = !flagged ;
 }
 
 public void reveal(){
