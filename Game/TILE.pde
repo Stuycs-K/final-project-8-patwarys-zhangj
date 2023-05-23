@@ -10,11 +10,15 @@ public TILE(boolean bomb){
 }
 
 public void flag(){
-  flagged = !flagged ;
+  if(!revealed){
+    flagged = !flagged ;
+  }
 }
 
 public void reveal(){
-  revealed = true ;
+  if(flagged == false){
+    revealed = true ;
+  }
 }
 
 public boolean getFlagged(){
@@ -35,6 +39,21 @@ public int getNumBomb(){
 
 public void setNumBomb(int num){
   NumBomb = num ;
+}
+
+public void display(float x, float y, float size){
+  fill(120) ;
+  square(x, y, size) ;
+  if(flagged){
+    fill(255, 0, 0) ;
+    circle(x, y, size) ;
+  }
+  if(revealed){
+    fill(200) ;
+    square(x, y, size) ;
+    fill(0) ;
+    text(NumBomb + "", x, y, x + size, y + size) ;
+  }
 }
 
 }
