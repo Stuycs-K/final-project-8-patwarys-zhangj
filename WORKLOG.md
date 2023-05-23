@@ -16,6 +16,6 @@ info
 ### 5/22/23
 Created the TILE class
 
-### date y
-
-info
+### 5/23/23
+Revised the TILE class
+Added display for the TILE class
