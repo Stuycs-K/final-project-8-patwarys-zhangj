@@ -18,4 +18,9 @@ Created the TILE class
 
 ### 5/23/23
 Revised the TILE class
+
 Added display for the TILE class
+
+display() for Game.pde
+
+board in Game.pde changed to TILE[][]
