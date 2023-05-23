@@ -2,9 +2,9 @@ class TILE{
 boolean Bomb, flagged, revealed ;
 int NumBomb ;
 
-public TILE(boolean bomb, int numBomb){
+public TILE(boolean bomb){
   Bomb = bomb ;
-  NumBomb = numBomb ;
+  NumBomb = 0 ;
   flagged = false ;
   revealed = false ;
 }
@@ -31,6 +31,10 @@ public boolean getBomb(){
 
 public int getNumBomb(){
   return NumBomb ;
+}
+
+public void setNumBomb(int num){
+  NumBomb = num ;
 }
 
 }
