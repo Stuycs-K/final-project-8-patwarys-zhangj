@@ -61,7 +61,7 @@ void grid() {
         stroke(0);
         square(x, y, 100);
       }
-      if(board[row][col].getNumBomb() == 1){
+      if(board[row][col].getNumBomb() > 0){
         fill(0,255,0);
         stroke(0);
         square(x, y, 100);
@@ -81,8 +81,8 @@ void grid() {
 void mouseClicked() {
   int col = mouseX/50;
   int row = mouseY/50;
-    if(board[row][col].getNumBomb() == 0){
-      board[row][col].setNumBomb(1);
+    if(board[row][col].getBomb() == false){ 
+      board[row][col].reveal();
     }
     else{
       board[row][col].setNumBomb(-1);
