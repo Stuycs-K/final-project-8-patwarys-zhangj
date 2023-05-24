@@ -24,3 +24,10 @@ Added display for the TILE class
 display() for Game.pde
 
 board in Game.pde changed to TILE[][]
+
+### 5/24/23
+Redid display for TILE
+
+Made sure that all mines are placed
+
+started adding flagging features
