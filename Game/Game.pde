@@ -45,6 +45,24 @@ public void makeBoard(){
   }
   */
   while(mines > 0){
+    for(int i = 0; i<ROWS; i++){
+      for(int j = 0; j<COLS; j++){
+        if(board[i][j] == null){
+          if(random(100) < 25 && mines != 0){
+            board[i][j] = new TILE(true) ;
+            mines-- ;
+            FLAGS++ ;
+          }else{
+            board[i][j] = new TILE(false);
+          }
+        }else{
+          if(random(100) < 25 && mines != 0 && !board[i][j].getBomb()){
+            board[i][j] = new TILE(true) ;
+            mines-- ;
+            FLAGS++ ;
+          }
+      }
+    }
   }
   
   for(int i = 0; i < ROWS; i++){
@@ -94,6 +112,7 @@ public void makeBoard(){
   }
   
   }
+}
 }
 
  public void display(){
