@@ -3,7 +3,8 @@ int SQUARE_SIZE = 50;
 int Mode;
 int ROWS;
 int COLS;
-int MINES ;
+int MINES;
+int click = 0;
 
 void setup(){
   size(500, 500);
@@ -79,12 +80,37 @@ void grid() {
 } 
 
 void mouseClicked() {
+  if(click == 0){
+    int row = mouseX/50;
+    int col = mouseY/50;
+    if(board[row][col].getBomb() == true){
+      board[row][col].setNumBomb(1);
+      for(int x = mouseX; x <= 350; x += SQUARE_SIZE) {
+        for(int y = mouseY; y <= 250; y += SQUARE_SIZE) {
+         board[x/50][y/50].setNumBomb(1);      
+        }
+      }
+      click++;
+    }
+    else{
+      click++;
+      for(int x = mouseX; x <= 350; x += SQUARE_SIZE) {
+        for(int y = mouseY; y <= 250; y += SQUARE_SIZE) {
+         board[x/50][y/50].setNumBomb(1);     
+        }
+      }
+    }
+    click++;
+  }
+  else{
   int col = mouseX/50;
   int row = mouseY/50;
     if(board[row][col].getBomb() == false){ 
       board[row][col].reveal();
+      board[row][col].setNumBomb(1);
     }
     else{
       board[row][col].setNumBomb(-1);
     }
+  }
 }
