@@ -31,3 +31,5 @@ Redid display for TILE
 Made sure that all mines are placed
 
 started adding flagging features
+
+merged Flags_and_newRandomize with main
