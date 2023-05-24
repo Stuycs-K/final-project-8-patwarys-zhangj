@@ -1,28 +1,17 @@
-<<<<<<< HEAD
 TILE[][] board = new TILE[10][10];
 int SQUARE_SIZE = 50;
 int Mode;
-
-void setup(){
-  size(500, 500);
-  makeBoard();
-=======
-TILE[][] board;
 int ROWS;
 int COLS;
 int MINES ;
-int SQUARESIZE;
-int Mode;
 
 void setup(){
-  size(500, 600);
+  size(500, 500);
   ROWS = 10;
   COLS = 10;
-  SQUARESIZE = (width / COLS) - 1 ;
   MINES = 15 ;
   board = new TILE[ROWS][COLS] ;
   makeBoard() ;
->>>>>>> 6a277856f94d2ffaae52318465f8dddf8d544c98
 }
 
 void draw(){
@@ -31,14 +20,15 @@ void draw(){
 
 public void makeBoard(){
   int mines = MINES ;
+  
  if(Mode == 0){
-<<<<<<< HEAD
+   
    for(int i = 0; i<10; i++){
     for(int j = 0; j<10; j++){
       board[i][j] = new TILE(false);
     }
    }
-=======
+   
    for(int i = 0; i<ROWS; i++){
     for(int j = 0; j<COLS; j++){
       if(random(100) < 25 && mines != 0){
@@ -49,7 +39,7 @@ public void makeBoard(){
       }  
   }
   }
->>>>>>> 6a277856f94d2ffaae52318465f8dddf8d544c98
+  
   }
 }
 
