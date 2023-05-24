@@ -16,6 +16,11 @@ info
 ### 5/22/23
 Created the TILE class
 
-### date y
+### 5/23/23
+Revised the TILE class
 
-info
+Added display for the TILE class
+
+display() for Game.pde
+
+board in Game.pde changed to TILE[][]
