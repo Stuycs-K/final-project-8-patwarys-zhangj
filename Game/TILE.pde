@@ -52,7 +52,9 @@ public void display(float x, float y, float size){
     fill(200) ;
     square(x, y, size) ;
     fill(0) ;
-    text(NumBomb + "", x, y, x + size, y + size) ;
+    textSize(size) ;
+    textAlign(LEFT) ;
+    text(NumBomb + "", x, y+size) ;
   }
 }
 
