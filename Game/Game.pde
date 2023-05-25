@@ -163,14 +163,14 @@ void grid() {
 void mouseClicked() {
   //firstClick not done
   
-  /*if(click == 0){
+  if(click == 0){
     int row = mouseX/50;
     int col = mouseY/50;
     if(board[row][col].getBomb() == true){
       board[row][col].setNumBomb(1);
       for(int x = mouseX; x <= 350; x += SQUARE_SIZE) {
         for(int y = mouseY; y <= 250; y += SQUARE_SIZE) {
-         board[x/50][y/50].setNumBomb(1);      
+         board[x/50][y/50].reveal();      
         }
       }
       click++;
@@ -179,14 +179,14 @@ void mouseClicked() {
       click++;
       for(int x = mouseX; x <= 350; x += SQUARE_SIZE) {
         for(int y = mouseY; y <= 250; y += SQUARE_SIZE) {
-         board[x/50][y/50].setNumBomb(1);     
+         board[x/50][y/50].reveal();     
         }
       }
     }
     click++;
-  } */
+  } 
   
-  //else{
+  else{
   int col = mouseX/50;
   int row = mouseY/50;
     if(board[col][row].getBomb() == false){ 
@@ -196,4 +196,4 @@ void mouseClicked() {
       board[col][row].reveal();
     }
   }
-//}
+}
