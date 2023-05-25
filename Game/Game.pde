@@ -148,7 +148,7 @@ void calculateAdjacentMines(int x, int y){
             board[x][y].setNumBomb(board[x][y].getNumBomb() + 1) ;
           }
         }
-        if(x != COLS - 1){
+        if(y != COLS - 1){
           if(board[x+1][y+1].getBomb()){
             board[x][y].setNumBomb(board[x][y].getNumBomb() + 1) ;
           }
