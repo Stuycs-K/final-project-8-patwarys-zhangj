@@ -67,47 +67,7 @@ public void makeBoard(){
   
   for(int i = 0; i < ROWS; i++){
     for(int j = 0; j < COLS; j++){
-      if(i != 0){
-        if(board[i-1][j].getBomb()){
-          board[i][j].setNumBomb(board[i][j].getNumBomb() + 1) ;
-        }
-         if(j != 0){
-          if(board[i-1][j-1].getBomb()){
-            board[i][j].setNumBomb(board[i][j].getNumBomb() + 1) ;
-          }
-          }
-          if(j != COLS - 1){
-            if(board[i -1][j+1].getBomb()){
-              board[i][j].setNumBomb(board[i][j].getNumBomb() + 1) ;
-            }
-          }
-      
-      }
-      if(i != ROWS - 1){
-        if(board[i+1][j].getBomb()){
-          board[i][j].setNumBomb(board[i][j].getNumBomb() + 1) ;
-        }
-        if(j != 0){
-          if(board[i+1][j-1].getBomb()){
-            board[i][j].setNumBomb(board[i][j].getNumBomb() + 1) ;
-          }
-        }
-        if(j != COLS - 1){
-          if(board[i+1][j+1].getBomb()){
-            board[i][j].setNumBomb(board[i][j].getNumBomb() + 1) ;
-          }
-        }
-       }
-      if(j != 0){
-        if(board[i][j-1].getBomb()){
-          board[i][j].setNumBomb(board[i][j].getNumBomb() + 1) ;
-        }
-      }
-      if(j != COLS - 1){
-        if(board[i][j+1].getBomb()){
-          board[i][j].setNumBomb(board[i][j].getNumBomb() + 1) ;
-        }
-      }
+      calculateAdjacentMines(i, j) ;
     }
   }
   
@@ -160,4 +120,48 @@ void mouseClicked() {
     else{
       board[row][col].setNumBomb(-1);
     }
+}
+
+void calculateAdjacentMines(int x, int y){
+        if(x != 0){
+        if(board[x-1][y].getBomb()){
+          board[x][y].setNumBomb(board[x][y].getNumBomb() + 1) ;
+        }
+         if(y != 0){
+          if(board[x-1][y-1].getBomb()){
+            board[x][y].setNumBomb(board[x][y].getNumBomb() + 1) ;
+          }
+          }
+          if(y != COLS - 1){
+            if(board[x -1][y+1].getBomb()){
+              board[x][y].setNumBomb(board[x][y].getNumBomb() + 1) ;
+            }
+          }
+      
+      }
+      if(x != ROWS - 1){
+        if(board[x+1][y].getBomb()){
+          board[x][y].setNumBomb(board[x][y].getNumBomb() + 1) ;
+        }
+        if(y != 0){
+          if(board[x+1][y-1].getBomb()){
+            board[x][y].setNumBomb(board[x][y].getNumBomb() + 1) ;
+          }
+        }
+        if(y != COLS - 1){
+          if(board[x+1][y+1].getBomb()){
+            board[x][y].setNumBomb(board[x][y].getNumBomb() + 1) ;
+          }
+        }
+       }
+      if(y != 0){
+        if(board[x][y-1].getBomb()){
+          board[x][y].setNumBomb(board[x][y].getNumBomb() + 1) ;
+        }
+      }
+      if(y != COLS - 1){
+        if(board[x][y+1].getBomb()){
+          board[x][y].setNumBomb(board[x][y].getNumBomb() + 1) ;
+        }
+      }
 }
