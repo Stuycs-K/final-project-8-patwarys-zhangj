@@ -147,12 +147,12 @@ void grid() {
         fill(0,255,0);
         stroke(0);
         square(x, y, 100);
-      }
+      } */
       if(board[row][col].getNumBomb() == -1){
         fill(255,0,0);
         stroke(0);
         square(x, y, 100);
-      } */
+      } 
       row++;
     }
     row = 0;
@@ -194,7 +194,12 @@ void mouseClicked() {
       board[col][row].reveal();
     }
     else{
-      board[col][row].reveal();
+      //board[col][row].reveal();
+      for(int x = 0; x <= width - SQUARE_SIZE; x += SQUARE_SIZE) {
+    for(int y = 0; y <= height - SQUARE_SIZE; y += SQUARE_SIZE) {
+      board[x/50][y/50].setNumBomb(-1);
+    }
+      }
       lose = true;
     }
   }

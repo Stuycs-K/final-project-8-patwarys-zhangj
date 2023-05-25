@@ -60,15 +60,12 @@ public void display(float x, float y, float size){
     else{
       for(int a = 0; a <= width - SQUARE_SIZE; a += SQUARE_SIZE) {
         for(int b = 0; b <= height - SQUARE_SIZE; b += SQUARE_SIZE) {
-        fill(255,0,0);
-        stroke(0);
-        square(a, b, 100);
-        fill(0,0,255) ;
+        fill(0,0,255);
         textSize(25) ;
         text("Game Over", width/3+20, height/2) ;
         }
       }
-    }
+    } 
   }
 }
 
