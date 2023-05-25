@@ -20,6 +20,10 @@ Started on working on basics of how clicking affects the board
 
 Continued working on mouseClicked -- firstClick, which reveals a random number of squares on the board
 
+Fixed grid to make it work with display and fixed mouseClicked
+
+Made additional changes to firstClick 
+
 ## Junling Zhang
 
 ### 5/22/23
