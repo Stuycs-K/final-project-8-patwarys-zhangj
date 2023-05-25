@@ -42,17 +42,19 @@ public void setNumBomb(int num){
 }
 
 public void display(float x, float y, float size){
-  fill(120) ;
-  square(x, y, size) ;
+  /*fill(120) ;
+  square(x, y, size) ;*/
   if(flagged){
     fill(255, 0, 0) ;
     circle(x, y, size) ;
   }
   if(revealed){
-    fill(200) ;
+    fill(0,255,0) ;
     square(x, y, size) ;
-    fill(0) ;
-    text(NumBomb + "", x, y, x + size, y + size) ;
+    fill(0,0,255) ;
+    textSize(size) ;
+    textAlign(LEFT) ;
+    text(NumBomb + "", x, y+size) ;
   }
 }
 
