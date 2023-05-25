@@ -2,14 +2,23 @@
 
 ## Sajid Patwary
 
-### date x
+### 5/22/23
 
-info
+Started working on the Game class
 
-### date y
+Added setup, draw, makeBoard, and instance variables
 
-info
+### 5/23/23
 
+Continued working on the Game Class
+
+Worked on displaying the board 
+
+Started on working on basics of how clicking affects the board
+
+### 5/24/23
+
+Continued working on mouseClicked -- firstClick, which reveals a random number of squares on the board
 
 ## Junling Zhang
 
