@@ -50,3 +50,5 @@ merged Flags_and_newRandomize with main
 ### 5/25/23
 added calculateAdjacentMines()
 
+Edited Prototype
+
