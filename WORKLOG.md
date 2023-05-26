@@ -65,4 +65,8 @@ Edited Prototype
 ### 5/26/23
 Fully incorporated score system(working)
 
-started trying to make all adjacent TILEs with zero nearby bombs that are next to revealed TILEs reveal
+Made reveal() - all adjacent TILEs with zero NumBomb values will auto reveal
+
+fixed mouse position indexing error
+
+fixed impossible NumBomb value bug/error
