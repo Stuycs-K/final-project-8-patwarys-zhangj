@@ -12,9 +12,9 @@ boolean lose = false;
 
 void setup(){
   size(600, 600);
-  ROWS = 10;
-  COLS = 10;
-  MINES = 50 ;
+  ROWS = 12;
+  COLS = 12;
+  MINES = 25 ;
   FLAGS = 0;
   board = new TILE[ROWS][COLS] ;
   makeBoard() ;
@@ -85,6 +85,7 @@ public void makeBoard(){
   
   for(int i = 0; i < ROWS; i++){
     for(int j = 0; j < COLS; j++){
+      board[i][j].setNumBomb(0) ;
       calculateAdjacentMines(i, j) ;
     }
   }
@@ -150,7 +151,7 @@ void display(){
    int SQUARESIZE = 50 ;
   for(int i = 0 ; i < ROWS; i++){
     for(int j = 0 ; j < COLS; j++){
-      board[i][j].display(i * SQUARESIZE, (j * SQUARESIZE) + (height - width), SQUARESIZE) ;
+      board[i][j].display(i * SQUARESIZE, (j * SQUARESIZE) + (100), SQUARESIZE) ;
     }
   }
 }
@@ -184,7 +185,7 @@ void mouseClicked() {
   
   //else{
   int col = mouseX/50;
-  int row = mouseY/50;
+  int row = (mouseY - 100)/50;
   if(lose == false){
     if(board[col][row].getBomb() == false){ 
       reveal(col, row) ;
@@ -244,17 +245,17 @@ void reveal(int x, int y){
   board[x][y].reveals() ;
   score++ ;
   if(board[x][y].getNumBomb() == 0){
-          if(x != 0){
+          if(x != 0 && !board[x-1][y].getRevealed()){
           reveal(x-1, y) ;
           }
-      if(x != ROWS - 1){
+      if(x != ROWS - 1 && !board[x+1][y].getRevealed()){
           reveal(x + 1, y) ;
        }
-      if(y != 0){
+      if(y != 0 && !board[x][y-1].getRevealed()){
           reveal(x, y - 1);
 
       }
-      if(y != COLS - 1){
+      if(y != COLS - 1 && !board[x][y+1].getRevealed()){
           reveal(x, y + 1) ;
       }
   }
