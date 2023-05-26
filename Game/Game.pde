@@ -134,17 +134,7 @@ public void makeBoard(){
 }
 
 void display(){
-   int SQUARESIZE = 50 ;
-  for(int i = 0 ; i < ROWS; i++){
-    for(int j = 0 ; j < COLS; j++){
-      board[i][j].display(i * SQUARESIZE, (j * SQUARESIZE) + (height - width), SQUARESIZE) ;
-    }
-  } 
-}
-
-void grid() {
-  
- /* int SQUARESIZE = 50 ;
+   /* int SQUARESIZE = 50 ;
   for(int i = 0 ; i < ROWS; i++){
     for(int j = 0 ; j < COLS; j++){
       board[i][j].display(i * SQUARESIZE, (j * SQUARESIZE) + (height - width), SQUARESIZE) ;
@@ -195,6 +185,18 @@ void grid() {
     row = 0;
     col++;
   }
+  
+   int SQUARESIZE = 50 ;
+  for(int i = 0 ; i < ROWS; i++){
+    for(int j = 0 ; j < COLS; j++){
+      board[i][j].display(i * SQUARESIZE, (j * SQUARESIZE) + (height - width), SQUARESIZE) ;
+    }
+  }
+}
+
+void grid() {
+  
+
   
 } 
 
