@@ -21,6 +21,21 @@ void setup(){
 void draw(){
   grid();
   display();
+  
+  if(lose == true){
+    for(int x = 0; x <= width - SQUARE_SIZE; x += SQUARE_SIZE) {
+    for(int y = 0; y <= height - SQUARE_SIZE; y += SQUARE_SIZE) {
+      fill(255,0,0);
+        stroke(0);
+        square(x, y, 100);
+        
+        fill(0,0,255);
+        textSize(25) ;
+        text("GAME   OVER", width/3+20, height/2) ;
+        }
+      }
+  }
+  
 }
 
 public void makeBoard(){
@@ -147,12 +162,12 @@ void grid() {
         fill(0,255,0);
         stroke(0);
         square(x, y, 100);
-      } */
+      } 
       if(board[row][col].getNumBomb() == -1){
         fill(255,0,0);
         stroke(0);
         square(x, y, 100);
-      } 
+      } */
       row++;
     }
     row = 0;
@@ -195,13 +210,8 @@ void mouseClicked() {
     }
     else{
       //board[col][row].reveal();
-      for(int x = 0; x <= width - SQUARE_SIZE; x += SQUARE_SIZE) {
-    for(int y = 0; y <= height - SQUARE_SIZE; y += SQUARE_SIZE) {
-      board[x/50][y/50].setNumBomb(-1);
-    }
-      }
       lose = true;
     }
   }
-  }
+}
 //}

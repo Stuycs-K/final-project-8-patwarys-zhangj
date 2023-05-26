@@ -56,15 +56,6 @@ public void display(float x, float y, float size){
     textSize(size) ;
     textAlign(LEFT) ;
     text(NumBomb + "", x, y+size) ;
-    }
-    else{
-      for(int a = 0; a <= width - SQUARE_SIZE; a += SQUARE_SIZE) {
-        for(int b = 0; b <= height - SQUARE_SIZE; b += SQUARE_SIZE) {
-        fill(0,0,255);
-        textSize(25) ;
-        text("Game Over", width/3+20, height/2) ;
-        }
-      }
     } 
   }
 }
