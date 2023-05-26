@@ -15,7 +15,7 @@ public void flag(){
   }
 }
 
-public void reveal(){
+public void reveals(){
   if(flagged == false){
     revealed = true ;
   }

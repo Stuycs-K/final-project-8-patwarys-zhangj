@@ -6,6 +6,7 @@ int COLS;
 int MINES;
 int FLAGS;
 int click = 0;
+int score = 0;
 boolean lose = false;
 
 
@@ -13,7 +14,7 @@ void setup(){
   size(600, 600);
   ROWS = 10;
   COLS = 10;
-  MINES = 15 ;
+  MINES = 50 ;
   FLAGS = 0;
   board = new TILE[ROWS][COLS] ;
   makeBoard() ;
@@ -123,7 +124,7 @@ void display(){
       
       fill(0);
       textSize(25) ;
-      text("Score : 0", 450, 60) ;
+      text("Score : " + score, 450, 60) ;
       
   for(int x = 0; x <= width - SQUARE_SIZE; x += SQUARE_SIZE) {
     for(int y = 100; y <= height - SQUARE_SIZE; y += SQUARE_SIZE) {
@@ -165,7 +166,7 @@ void mouseClicked() {
       board[row][col].setNumBomb(1);
       for(int x = mouseX; x <= 350; x += SQUARE_SIZE) {
         for(int y = mouseY; y <= 250; y += SQUARE_SIZE) {
-         board[x/50][y/50].reveal();      
+         reveal(x/50, y/50) ;    
         }
       }
       click++;
@@ -174,7 +175,7 @@ void mouseClicked() {
       click++;
       for(int x = mouseX; x <= 350; x += SQUARE_SIZE) {
         for(int y = mouseY; y <= 250; y += SQUARE_SIZE) {
-         board[x/50][y/50].reveal();     
+         reveal(x/50,y/50) ;  
         }
       }
     }
@@ -186,7 +187,7 @@ void mouseClicked() {
   int row = mouseY/50;
   if(lose == false){
     if(board[col][row].getBomb() == false){ 
-      board[col][row].reveal();
+      reveal(col, row) ;
     }
     else{
       //board[col][row].reveal();
@@ -237,4 +238,24 @@ void calculateAdjacentMines(int x, int y){
           board[x][y].setNumBomb(board[x][y].getNumBomb() + 1) ;
         }
       }
+}
+
+void reveal(int x, int y){
+  board[x][y].reveals() ;
+  score++ ;
+  if(board[x][y].getNumBomb() == 0){
+          if(x != 0){
+          reveal(x-1, y) ;
+          }
+      if(x != ROWS - 1){
+          reveal(x + 1, y) ;
+       }
+      if(y != 0){
+          reveal(x, y - 1);
+
+      }
+      if(y != COLS - 1){
+          reveal(x, y + 1) ;
+      }
+  }
 }
