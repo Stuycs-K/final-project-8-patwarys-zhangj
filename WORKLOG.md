@@ -24,6 +24,16 @@ Fixed grid to make it work with display and fixed mouseClicked
 
 Made additional changes to firstClick 
 
+### 5/24/23
+
+Updated mouseClicked so that it doesn't do anything to the board after a bomb is discovered and game ends
+
+Updated display to show a red screen with "Game Over" when a player clicks on a bomb
+
+Removed unecessary and excess code from Game and Tile class
+
+Added a header with game info such as the current mode, score, and the number of flags
+
 ## Junling Zhang
 
 ### 5/22/23
