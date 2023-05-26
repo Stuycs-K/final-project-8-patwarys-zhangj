@@ -9,7 +9,7 @@ int click = 0;
 boolean lose = false;
 
 void setup(){
-  size(500, 500);
+  size(600, 600);
   ROWS = 10;
   COLS = 10;
   MINES = 15 ;
@@ -24,14 +24,14 @@ void draw(){
   
   if(lose == true){
     for(int x = 0; x <= width - SQUARE_SIZE; x += SQUARE_SIZE) {
-    for(int y = 0; y <= height - SQUARE_SIZE; y += SQUARE_SIZE) {
+    for(int y = 100; y <= height - SQUARE_SIZE; y += SQUARE_SIZE) {
       fill(255,0,0);
         stroke(0);
         square(x, y, 100);
         
         fill(0,0,255);
         textSize(25) ;
-        text("GAME   OVER", width/3+20, height/2) ;
+        text("GAME   OVER", width-350, height-250) ;
         }
       }
   }
@@ -153,8 +153,30 @@ void grid() {
   
   int row = 0;
   int col = 0;
+      fill(34,139,34);
+      stroke(0);
+      rect(0.0,0.0,600.0,100.0);
+      
+        
+      fill(0);
+      textSize(25) ;
+      text("Mode: Easy", 20, 60) ;
+      
+      fill(255,0,0);
+      stroke(0);
+      line(250,30,250,70);
+      triangle(250, 30, 250, 50, 280, 40);
+      
+      fill(0);
+      textSize(25) ;
+      text("15", 290, 60) ;
+      
+      fill(0);
+      textSize(25) ;
+      text("Score : 0", 450, 60) ;
+      
   for(int x = 0; x <= width - SQUARE_SIZE; x += SQUARE_SIZE) {
-    for(int y = 0; y <= height - SQUARE_SIZE; y += SQUARE_SIZE) {
+    for(int y = 100; y <= height - SQUARE_SIZE; y += SQUARE_SIZE) {
         fill(144,238,144);
         stroke(0);
         square(x, y, 100);
@@ -179,10 +201,11 @@ void grid() {
 void mouseClicked() {
   //firstClick not done
   
-  /* if(click == 0){
+  if(click == 0){
     int row = mouseX/50;
     int col = mouseY/50;
     if(board[row][col].getBomb() == true){
+      board[row][col].setNumBomb(1);
       for(int x = mouseX; x <= 350; x += SQUARE_SIZE) {
         for(int y = mouseY; y <= 250; y += SQUARE_SIZE) {
          board[x/50][y/50].reveal();      
@@ -199,7 +222,7 @@ void mouseClicked() {
       }
     }
     click++;
-  } */
+  } 
   
   //else{
   int col = mouseX/50;
