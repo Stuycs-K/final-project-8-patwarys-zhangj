@@ -62,3 +62,7 @@ added calculateAdjacentMines()
 
 Edited Prototype
 
+### 5/26/23
+Fully incorporated score system(working)
+
+started trying to make all adjacent TILEs with zero nearby bombs that are next to revealed TILEs reveal
