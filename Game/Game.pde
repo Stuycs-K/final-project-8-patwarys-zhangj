@@ -19,7 +19,6 @@ void setup(){
 }
 
 void draw(){
-  grid();
   display();
   
   if(lose == true){
@@ -194,11 +193,6 @@ void display(){
   }
 }
 
-void grid() {
-  
-
-  
-} 
 
 void mouseClicked() {
   //firstClick not done
