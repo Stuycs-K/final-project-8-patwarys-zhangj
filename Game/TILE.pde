@@ -29,6 +29,10 @@ public boolean getRevealed(){
   return revealed ;
 }
 
+public void setRevealed(boolean wtv){
+  revealed = wtv;;
+}
+
 public boolean getBomb(){
   return Bomb ;
 }

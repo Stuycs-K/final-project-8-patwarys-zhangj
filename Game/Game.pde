@@ -64,18 +64,6 @@ void draw(){
         }
       }
   }
-  
-  if(retry == true){
-    for(int x = 0; x <= width - SQUARE_SIZE; x += SQUARE_SIZE) {
-    for(int y = 100; y <= height - SQUARE_SIZE; y += SQUARE_SIZE) {
-        fill(144,238,144);
-        stroke(0);
-        square(x, y, 100);
-    }
-    }
-    makeBoard();
-  }
-  
 }
 
 public void makeBoard(){
@@ -241,8 +229,9 @@ void mouseClicked() {
    if(x > 0 && y >0){
      retry = true; 
      lose = false;
-     score = 0;
+     //score = 0;
      click = 0;
+     MINES = 25;
    }
   }
 }
@@ -309,4 +298,57 @@ void reveal(int x, int y){
           reveal(x, y + 1) ;
       }
   }
+}
+
+void reset(){
+   if(retry == true){
+    for(int x = 0; x <= width - SQUARE_SIZE; x += SQUARE_SIZE) {
+    for(int y = 100; y <= height - SQUARE_SIZE; y += SQUARE_SIZE) {
+        fill(144,238,144);
+        stroke(0);
+        square(x, y, 100);
+    }
+    }
+    
+       int SQUARESIZE = 50 ;
+  for(int i = 0 ; i < ROWS; i++){
+    for(int j = 0 ; j < COLS; j++){
+      board[i][j].display(i * SQUARESIZE, (j * SQUARESIZE) + (100), SQUARESIZE) ;
+    }
+  }
+    
+    for(int x = 0; x <= width - SQUARE_SIZE; x += SQUARE_SIZE) {
+    for(int y = 100; y <= height - SQUARE_SIZE; y += SQUARE_SIZE) {
+        board[x/50][y/50].setRevealed(false);
+      }
+    }
+    //makeBoard
+    int mines = MINES ;
+  
+ if(Mode == 0){
+  while(mines > 0){
+    for(int i = 0; i<ROWS; i++){
+      for(int j = 0; j<COLS; j++){
+        if(board[i][j] == null){
+          if(random(100) < 25 && mines != 0){
+            board[i][j] = new TILE(true) ;
+            mines-- ;
+            FLAGS++;
+          }else{
+            board[i][j] = new TILE(false);
+          }
+        }else{
+          if(random(100) < 25 && mines != 0 && !board[i][j].getBomb()){
+            board[i][j] = new TILE(true) ;
+            mines-- ;
+            FLAGS++ ;
+          }
+      }
+    }
+    
+  }
+  
+}
+ }
+  } 
 }
