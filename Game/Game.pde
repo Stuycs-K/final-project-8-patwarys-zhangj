@@ -8,6 +8,7 @@ int FLAGS;
 int click = 0;
 int score = 0;
 boolean lose = false;
+boolean retry = false;
 
 
 void setup(){
@@ -25,15 +26,54 @@ void draw(){
   if(lose == true){
     for(int x = 0; x <= width - SQUARE_SIZE; x += SQUARE_SIZE) {
     for(int y = 100; y <= height - SQUARE_SIZE; y += SQUARE_SIZE) {
-      fill(255,0,0);
+        fill(255,0,0);
         stroke(0);
-        square(x, y, 100);
-        
-        fill(0,0,255);
+        square(x, y, 100);  
+      
+        fill(0);
         textSize(25) ;
-        text("GAME   OVER", width-350, height-250) ;
+        text("GAME   OVER", width-365, height-300) ;
+        
+        fill(144,238,144);
+        stroke(0);
+        square(width-350, height - 250, 50);
+                
+        fill(144,238,144);
+        stroke(0);
+        square(width-300, height - 250, 50);
+        
+        fill(144,238,144);
+        stroke(0);
+        square(width-250, height - 250, 50);
+        
+        fill(144,238,144);
+        stroke(0);
+        square(width-400, height - 250, 50);
+        
+        fill(0);
+        textSize(25) ;
+        text("TRY   AGAIN", width-340, height-215) ;
+        
+        fill(255);
+        stroke(0);
+        circle(width-370, height - 225, 25);
+        
+        fill(0);
+        stroke(0);
+        triangle(width-355,height-215,width-358,height-227,width-368,height-218);
         }
       }
+  }
+  
+  if(retry == true){
+    for(int x = 0; x <= width - SQUARE_SIZE; x += SQUARE_SIZE) {
+    for(int y = 100; y <= height - SQUARE_SIZE; y += SQUARE_SIZE) {
+        fill(144,238,144);
+        stroke(0);
+        square(x, y, 100);
+    }
+    }
+    makeBoard();
   }
   
 }
@@ -194,6 +234,16 @@ void mouseClicked() {
       //board[col][row].reveal();
       lose = true;
     }
+  }
+  else{
+   int x = mouseX;
+   int y = mouseY;
+   if(x > 0 && y >0){
+     retry = true; 
+     lose = false;
+     score = 0;
+     click = 0;
+   }
   }
 }
 
