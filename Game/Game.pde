@@ -9,12 +9,13 @@ int click = 0;
 int score = 0;
 int time = 0 ;
 boolean lose = false;
+boolean win = false ;
 
 
 void setup(){
   size(600, 600);
   ROWS = 12;
-  COLS = 12;
+  COLS = 10;
   MINES = 25 ;
   FLAGS = 0;
   board = new TILE[ROWS][COLS] ;
@@ -40,6 +41,18 @@ void draw(){
         fill(0,0,255);
         textSize(25) ;
         text("GAME   OVER", width-350, height-250) ;
+        }
+      }
+  }else if(win == true){
+    for(int x = 0; x <= width - SQUARE_SIZE; x += SQUARE_SIZE) {
+    for(int y = 100; y <= height - SQUARE_SIZE; y += SQUARE_SIZE) {
+      fill(0,255,0);
+        stroke(0);
+        square(x, y, 100);
+        
+        fill(0,255,255);
+        textSize(25) ;
+        text("MINES  CLEARED", width-350, height-250) ;
         }
       }
   }
@@ -169,7 +182,10 @@ void mouseClicked() {
       board[row][col].setNumBomb(1);
       for(int x = mouseX; x <= 350; x += SQUARE_SIZE) {
         for(int y = mouseY; y <= 250; y += SQUARE_SIZE) {
-         reveal(x/50, y/50) ;    
+         reveal(x/50, y/50) ; 
+         if(checkFinished()){
+          win = true ;
+        }
         }
       }
       click++;
@@ -179,6 +195,9 @@ void mouseClicked() {
       for(int x = mouseX; x <= 350; x += SQUARE_SIZE) {
         for(int y = mouseY; y <= 250; y += SQUARE_SIZE) {
          reveal(x/50,y/50) ;  
+         if(checkFinished()){
+          win = true ;
+        }
         }
       }
     }
@@ -191,6 +210,9 @@ void mouseClicked() {
   if(lose == false){
     if(board[col][row].getBomb() == false){ 
       reveal(col, row) ;
+      if(checkFinished()){
+        win = true ;
+      }
     }
     else{
       //board[col][row].reveal();
@@ -261,4 +283,15 @@ void reveal(int x, int y){
           reveal(x, y + 1) ;
       }
   }
+}
+
+boolean checkFinished(){
+  for(int i = 0; i < board.length ; i++){
+    for(int j = 0; j < board[i].length; j++){
+      if(!board[i][j].getBomb() && !board[i][j].getRevealed()){
+        return false ;
+      }
+    }
+  }
+  return true ;
 }
