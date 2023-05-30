@@ -22,6 +22,11 @@ void setup(){
 
 void draw(){
   display();
+  fill(0) ;
+  text("Time: " + score, 450, 25) ;
+  if(frameCount%frameRate == 0){
+    score++ ;
+  }  
   if(lose == true){
     for(int x = 0; x <= width - SQUARE_SIZE; x += SQUARE_SIZE) {
     for(int y = 100; y <= height - SQUARE_SIZE; y += SQUARE_SIZE) {
@@ -102,9 +107,6 @@ void display(){
       board[i][j].display(i * SQUARESIZE, (j * SQUARESIZE) + (height - width), SQUARESIZE) ;
     }
   } */
-  
-  int row = 0;
-  int col = 0;
       fill(34,139,34);
       stroke(0);
       rect(0.0,0.0,600.0,100.0);
