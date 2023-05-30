@@ -7,6 +7,7 @@ int MINES;
 int FLAGS;
 int click = 0;
 int score = 0;
+int time = 0 ;
 boolean lose = false;
 
 
@@ -23,9 +24,11 @@ void setup(){
 void draw(){
   display();
   fill(0) ;
-  text("Time: " + score, 450, 25) ;
-  if(frameCount%frameRate == 0){
-    score++ ;
+  textSize(25) ;
+  text("Time: " + time, 450, 25) ;
+  frameRate(20) ;
+  if(frameCount%20 == 0){
+    time++ ;
   }  
   if(lose == true){
     for(int x = 0; x <= width - SQUARE_SIZE; x += SQUARE_SIZE) {
@@ -144,10 +147,7 @@ void display(){
         stroke(0);
         square(x, y, 100);
       } */
-      row++;
     }
-    row = 0;
-    col++;
   }
   
    int SQUARESIZE = 50 ;
