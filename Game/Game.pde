@@ -228,7 +228,7 @@ void mouseClicked() {
   else{
    int x = mouseX;
    int y = mouseY;
-   if(x > 0 && y >0){
+   if(x > width - 400 && x < width - 200 && y > 350 && y < 400){
      retry = true; 
      lose = false;
      //score = 0;
