@@ -218,7 +218,7 @@ void mouseClicked() {
   int row = (mouseY - 100)/50;
   if(lose == false){
     if(board[col][row].getBomb() == false){ 
-      reveal(col, row) ;
+      reveal(col, row);
     }
     else{
       //board[col][row].reveal();
@@ -231,7 +231,7 @@ void mouseClicked() {
    if(x > width - 400 && x < width - 200 && y > 350 && y < 400){
      retry = true; 
      lose = false;
-     //score = 0;
+     score = 0;
      click = 0;
      MINES = 25;
    }
@@ -296,45 +296,48 @@ void calculateAdjacentMines(int x, int y){
 }
 
 void reveal(int x, int y){
-  board[x][y].reveals() ;
+  board[x][y].reveals();
   score++ ;
   if(board[x][y].getNumBomb() == 0){
           if(x != 0 && !board[x-1][y].getRevealed()){
           reveal(x-1, y) ;
+          board[x-1][y].setRevealed(true);
           }
       if(x != ROWS - 1 && !board[x+1][y].getRevealed()){
           reveal(x + 1, y) ;
+          board[x+1][y].setRevealed(true);
        }
       if(y != 0 && !board[x][y-1].getRevealed()){
           reveal(x, y - 1);
-
+          board[x][y-1].setRevealed(true);
       }
       if(y != COLS - 1 && !board[x][y+1].getRevealed()){
           reveal(x, y + 1) ;
+          board[x][y+1].setRevealed(true);                    
       }
   }
-  board[x][y].setRevealed(true);
+  board[x][y].setFlag(false);
 }
 
 void reset(){
    if(retry == true){
-    for(int x = 0; x <= width - SQUARE_SIZE; x += SQUARE_SIZE) {
-    for(int y = 100; y <= height - SQUARE_SIZE; y += SQUARE_SIZE) {
+     for(int x = 0; x <= width - SQUARE_SIZE; x += SQUARE_SIZE) {
+       for(int y = 100; y <= height - SQUARE_SIZE; y += SQUARE_SIZE) {
         fill(144,238,144);
         stroke(0);
         square(x, y, 100);
-    }
+      }
     }
     
-       int SQUARESIZE = 50 ;
-  for(int i = 0 ; i < ROWS; i++){
-    for(int j = 0 ; j < COLS; j++){
-      board[i][j].display(i * SQUARESIZE, (j * SQUARESIZE) + (100), SQUARESIZE) ;
+   int SQUARESIZE = 50 ;
+     for(int i = 0 ; i < ROWS; i++){
+      for(int j = 0 ; j < COLS; j++){
+        board[i][j].display(i * SQUARESIZE, (j * SQUARESIZE) + (100), SQUARESIZE) ;
     }
   }
     
     for(int x = 0; x <= width - SQUARE_SIZE; x += SQUARE_SIZE) {
-    for(int y = 100; y <= height - SQUARE_SIZE; y += SQUARE_SIZE) {
+      for(int y = 100; y <= height - SQUARE_SIZE; y += SQUARE_SIZE) {
         board[x/50][y/50].setRevealed(false);
       }
     }
@@ -359,12 +362,10 @@ void reset(){
             mines-- ;
             FLAGS++ ;
           }
+        }
       }
+     }  
     }
-    
-  }
-  
-}
- }
+   }
   } 
 }
