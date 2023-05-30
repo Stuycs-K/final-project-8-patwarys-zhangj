@@ -14,7 +14,7 @@ boolean lose = false;
 void setup(){
   size(600, 600);
   ROWS = 12;
-  COLS = 12;
+  COLS = 10;
   MINES = 25 ;
   FLAGS = 0;
   board = new TILE[ROWS][COLS] ;
@@ -261,4 +261,15 @@ void reveal(int x, int y){
           reveal(x, y + 1) ;
       }
   }
+}
+
+boolean checkFinished(){
+  for(int i = 0; i < board.length ; i++){
+    for(int j = 0; j < board[i].length; j++){
+      if(!board[i][j].getBomb() && !board[i][j].getRevealed()){
+        return false ;
+      }
+    }
+  }
+  return true ;
 }
