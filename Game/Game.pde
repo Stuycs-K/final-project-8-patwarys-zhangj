@@ -189,7 +189,7 @@ void display(){
 
 void mouseClicked() {
   //firstClick not done
-  if(mouseButton == RIGHT){
+  if(mouseButton == RIGHT && board[mouseX/50][mouseY/50].getFlagged() == false){
   if(click == 0){
     int row = mouseX/50;
     int col = mouseY/50;
@@ -197,7 +197,7 @@ void mouseClicked() {
       board[row][col].setNumBomb(1);
       for(int x = mouseX; x <= 350; x += SQUARE_SIZE) {
         for(int y = mouseY; y <= 250; y += SQUARE_SIZE) {
-         reveal(x/50, y/50) ;    
+         reveal(x/50, y/50);    
         }
       }
       click++;
@@ -240,7 +240,9 @@ void mouseClicked() {
 
 if(mouseButton == LEFT){
   if(board[mouseX/50][mouseY/50].getFlagged() == false){
-  board[mouseX/50][mouseY/50].setFlag(true);
+    if(board[mouseX/50][mouseY/50].getRevealed() == false && mouseY > 100){
+      board[mouseX/50][mouseY/50].setFlag(true);
+    }
   }
   else{
     board[mouseX/50][mouseY/50].setFlag(false);
@@ -311,6 +313,7 @@ void reveal(int x, int y){
           reveal(x, y + 1) ;
       }
   }
+  board[x][y].setRevealed(true);
 }
 
 void reset(){

@@ -34,7 +34,7 @@ public boolean getRevealed(){
 }
 
 public void setRevealed(boolean wtv){
-  revealed = wtv;;
+  revealed = wtv;
 }
 
 public boolean getBomb(){
