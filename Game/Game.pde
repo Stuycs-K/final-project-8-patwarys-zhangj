@@ -22,6 +22,7 @@ void setup(){
 }
 
 void draw(){
+  
   display();
   if(lose == true){
     for(int x = 0; x <= width - SQUARE_SIZE; x += SQUARE_SIZE) {
@@ -157,6 +158,7 @@ void display(){
       
   for(int x = 0; x <= width - SQUARE_SIZE; x += SQUARE_SIZE) {
     for(int y = 100; y <= height - SQUARE_SIZE; y += SQUARE_SIZE) {
+      
         fill(144,238,144);
         stroke(0);
         square(x, y, 100);
@@ -187,7 +189,7 @@ void display(){
 
 void mouseClicked() {
   //firstClick not done
-  
+  if(mouseButton == RIGHT){
   if(click == 0){
     int row = mouseX/50;
     int col = mouseY/50;
@@ -234,6 +236,17 @@ void mouseClicked() {
      MINES = 25;
    }
   }
+}
+
+if(mouseButton == LEFT){
+  if(board[mouseX/50][mouseY/50].getFlagged() == false){
+  board[mouseX/50][mouseY/50].setFlag(true);
+  }
+  else{
+    board[mouseX/50][mouseY/50].setFlag(false);
+  }
+}
+
 }
 
 void calculateAdjacentMines(int x, int y){

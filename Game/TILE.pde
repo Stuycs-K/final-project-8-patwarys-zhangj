@@ -25,6 +25,10 @@ public boolean getFlagged(){
   return flagged ;
 }
 
+public void setFlag(boolean opp){
+  flagged = opp;
+}
+
 public boolean getRevealed(){
   return revealed ;
 }
@@ -49,8 +53,10 @@ public void display(float x, float y, float size){
   /*fill(120) ;
   square(x, y, size) ;*/
   if(flagged){
-    fill(255, 0, 0) ;
-    circle(x, y, size) ;
+    fill(255,0,0);
+    stroke(0);
+    line(x+20,y-90,x+20,y-60);
+    triangle(x+20, y-90, x+20, y-75, x+40, y-75);
   }
   if(revealed){
     if(getBomb() == false){
