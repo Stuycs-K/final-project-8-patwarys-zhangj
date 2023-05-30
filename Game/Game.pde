@@ -27,7 +27,7 @@ void draw(){
   textSize(25) ;
   text("Time: " + time, 450, 25) ;
   frameRate(20) ;
-  if(frameCount%20 == 0){
+  if(frameCount%20 == 0 && !lose){
     time++ ;
   }  
   if(lose == true){
