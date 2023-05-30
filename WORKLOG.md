@@ -82,10 +82,12 @@ fixed mouse position indexing error
 fixed impossible NumBomb value bug/error
 
 ### 5/30/23
-create timer branch
+created timer branch
 
 Added timer 
 
 merged timer branch into the main branch
+
+added and implemented checkFinsihed()
 
 edited Prototype
