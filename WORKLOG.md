@@ -80,3 +80,12 @@ Made reveal() - all adjacent TILEs with zero NumBomb values will auto reveal
 fixed mouse position indexing error
 
 fixed impossible NumBomb value bug/error
+
+### 5/30/23
+create timer branch
+
+Added timer 
+
+merged timer branch into the main branch
+
+edited Prototype
