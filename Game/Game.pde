@@ -207,7 +207,7 @@ void mouseClicked() {
        reveal((mouseX+100)/50,(mouseY+250)/50);
        reveal((mouseX+100)/50,(mouseY+200)/50);
      }
-     if(mouseY > 250 && mouseY < 450 && mouseX < width-100){
+     if(mouseY > 250 && mouseY <= 400 && mouseX < width-100){
        reveal(mouseX/50,mouseY/50);
        reveal(mouseX/50,(mouseY+50)/50);
        reveal(mouseX/50,(mouseY+100)/50);
@@ -219,10 +219,9 @@ void mouseClicked() {
        reveal((mouseX+50)/50,(mouseY+200)/50);
        reveal((mouseX+100)/50,(mouseY+100)/50);
        reveal((mouseX+100)/50,(mouseY+150)/50);
-       reveal((mouseX+100)/50,(mouseY+250)/50);
        reveal((mouseX+100)/50,(mouseY+200)/50);
-     }
-     if(mouseY > 450 && mouseX > 100){
+     } 
+     if(mouseY >= 450 && mouseX > 100){
        reveal(mouseX/50,mouseY/50);
        reveal(mouseX/50,(mouseY-50)/50);
        reveal(mouseX/50,(mouseY-100)/50);
@@ -236,8 +235,24 @@ void mouseClicked() {
        reveal((mouseX-100)/50,(mouseY-150)/50);
        reveal((mouseX-100)/50,(mouseY-250)/50);
        reveal((mouseX-100)/50,(mouseY-200)/50);
-     }
-    }
+     } 
+     if(mouseY > 400 && mouseY < 450 && mouseX < width - 100){
+       reveal(mouseX/50,mouseY/50);
+       reveal(mouseX/50,(mouseY-50)/50);
+       reveal(mouseX/50,(mouseY-100)/50);
+       reveal(mouseX/50,(mouseY-150)/50);
+       reveal(mouseX/50,(mouseY-200)/50);
+       reveal((mouseX-50)/50,(mouseY-50)/50);
+       reveal((mouseX-50)/50,(mouseY-100)/50);
+       reveal((mouseX-50)/50,(mouseY-150)/50);
+       reveal((mouseX-50)/50,(mouseY-200)/50);
+       reveal((mouseX-100)/50,(mouseY-100)/50);
+       reveal((mouseX-100)/50,(mouseY-150)/50);
+       reveal((mouseX-100)/50,(mouseY-250)/50);
+       reveal((mouseX-100)/50,(mouseY-200)/50);
+     } 
+    } 
+    
   /* if(click == 0){
     int row = mouseX/50;
     int col = mouseY/50;
