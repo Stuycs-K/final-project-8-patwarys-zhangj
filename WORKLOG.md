@@ -44,6 +44,14 @@ Added a "Try Again" feature which allows the player to retry when they click on 
 
 Added the flagging feature, which adds a flag on the board when the player LEFT clicks their mouse
 
+### 5/30/23
+
+Updated the flagging feature and fixed some of the issues it had
+
+Updated firstClick method
+
+Updated the displaying of squares which have no bombs around them
+
 ## Junling Zhang
 
 ### 5/22/23
