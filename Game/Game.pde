@@ -28,7 +28,7 @@ void draw(){
   textSize(25) ;
   text("Time: " + time, 450, 25) ;
   frameRate(20) ;
-  if(frameCount%20 == 0 && !lose){
+  if(frameCount%20 == 0 && !lose && !win){
     time++ ;
   }  
   if(lose == true){
@@ -46,13 +46,13 @@ void draw(){
   }else if(win == true){
     for(int x = 0; x <= width - SQUARE_SIZE; x += SQUARE_SIZE) {
     for(int y = 100; y <= height - SQUARE_SIZE; y += SQUARE_SIZE) {
-      fill(0,255,0);
+      fill(100,255,0);
         stroke(0);
         square(x, y, 100);
         
-        fill(0,255,255);
+        fill(0);
         textSize(25) ;
-        text("MINES  CLEARED", width-350, height-250) ;
+        text("MINES  CLEARED", width/3, height-250) ;
         }
       }
   }
@@ -163,7 +163,7 @@ void display(){
     }
   }
   
-   int SQUARESIZE = 50 ;
+   int SQUARESIZE = width/ROWS ;
   for(int i = 0 ; i < ROWS; i++){
     for(int j = 0 ; j < COLS; j++){
       board[i][j].display(i * SQUARESIZE, (j * SQUARESIZE) + (100), SQUARESIZE) ;
@@ -294,4 +294,30 @@ boolean checkFinished(){
     }
   }
   return true ;
+}
+
+void keyPressed(){
+  if(key == 'w' || key == 'W'){
+    lose = false ;
+    win = false ;
+    score = 0 ;
+    for(int i = 0; i < board.length; i++){
+      for(int j = 0; j < board[i].length; j++){
+        board[i][j] = new TILE(false) ;
+      }
+    }
+    board[0][0] = new TILE(true) ;
+    board[1][1] = new TILE(true) ;
+  }
+  if(key == 'p' || key == 'P'){
+    for(int i = 0; i < board.length; i++){
+      for(int j = 0; j < board[i].length; j++){
+        if(board[i][j].getBomb()){
+          fill(255, 0, 0) ;
+          ellipseMode(CORNER) ;
+          circle(i * width/ROWS , (j * width/ROWS) + 100, width/ROWS) ;
+        }
+      }
+    }
+  }
 }
