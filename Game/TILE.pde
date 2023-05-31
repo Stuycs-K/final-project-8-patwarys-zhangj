@@ -59,7 +59,12 @@ public void display(float x, float y, float size){
     fill(0,0,255) ;
     textSize(size) ;
     textAlign(LEFT) ;
+    if(NumBomb == 0){
+      text("", x, y+size) ;
+    }
+    else{
     text(NumBomb + "", x, y+size) ;
+    }
     } 
   }
   
