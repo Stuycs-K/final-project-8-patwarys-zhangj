@@ -240,7 +240,7 @@ void mouseClicked() {
 
 if(mouseButton == LEFT){
   if(board[mouseX/50][mouseY/50].getFlagged() == false){
-    if(board[mouseX/50][mouseY/50].getRevealed() == false && mouseY > 100){
+    if(mouseY > 100){
       board[mouseX/50][mouseY/50].setFlag(true);
     }
   }
