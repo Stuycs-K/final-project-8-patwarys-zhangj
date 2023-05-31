@@ -188,7 +188,7 @@ void display(){
 
 void mouseClicked() {
   //firstClick not done
-  if(mouseButton == RIGHT && board[mouseX/50][mouseY/50].getFlagged() == false){
+  if(mouseButton == RIGHT  && board[mouseX/50][mouseY/50].getFlagged() == false){
     
     if (click == 0){
      click++;
@@ -295,20 +295,20 @@ void mouseClicked() {
      retry = true; 
      lose = false;
      score = 0;
-     click = 0;
-     MINES = 25;
+     //click = 0;
+     //MINES = 25;
    }
   }
 }
 
 if(mouseButton == LEFT){
-  if(board[mouseX/50][mouseY/50].getFlagged() == false){
-    if(mouseY > 100){
+  if(board[mouseX/50][mouseY/50].getFlagged() == false && FLAGS > 0){
+    if(mouseY > 100 && board[mouseX/50][mouseY/50].getRevealed() == false){
       board[mouseX/50][mouseY/50].setFlag(true);
       FLAGS--;
     }
   }
-  else{
+  else if(board[mouseX/50][mouseY/50].getFlagged() == true){
     board[mouseX/50][mouseY/50].setFlag(false);
     FLAGS++;
   }
@@ -381,7 +381,7 @@ void reveal(int x, int y){
           board[x][y+1].setRevealed(true);                    
       }
   }
-  board[x][y].setFlag(false);
+  //board[x][y].setFlag(false);
 }
 
 void reset(){
