@@ -320,4 +320,15 @@ void keyPressed(){
       }
     }
   }
+  if(key == 'r' || key == 'R'){
+    for(int i = 0; i < board.length; i++){
+      for(int j = 0; j < board[i].length; j++){
+        if(board[i][j].getRevealed()){
+          fill(0, 0, 255) ;
+          ellipseMode(CORNER) ;
+          circle(i * width/ROWS , (j * width/ROWS) + 100, width/ROWS) ;
+        }
+      }
+    }
+  }
 }
