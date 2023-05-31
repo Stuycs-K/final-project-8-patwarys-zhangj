@@ -99,3 +99,8 @@ merged timer branch into the main branch
 added and implemented checkFinsihed()
 
 edited Prototype
+
+### 5/31/23
+added keyPressed()
+
+added three cheat keys to show mines and tile that the program thinks are revealed and a two mine board
