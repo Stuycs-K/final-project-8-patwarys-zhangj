@@ -54,17 +54,31 @@ public void display(float x, float y, float size){
   square(x, y, size) ;*/
   if(revealed){
     if(getBomb() == false){
-    fill(0,255,0) ;
+      fill(0,255,0) ;
     square(x, y, size) ;
     fill(0,0,255) ;
     textSize(size) ;
     textAlign(LEFT) ;
     if(NumBomb == 0){
       text("", x, y+size) ;
+      fill(211,211,211) ;
+      square(x, y, size) ;
     }
+    if(NumBomb == 2){
+     fill(255,0,0) ;
+     textSize(size) ;
+     textAlign(LEFT) ;
+     text(NumBomb + "", x, y+size) ;
+    }
+    if(NumBomb>2){
+     fill(128,0,128) ;
+     textSize(size) ;
+     textAlign(LEFT) ;
+     text(NumBomb + "", x, y+size) ;
+    } 
     else{
-    text(NumBomb + "", x, y+size) ;
-    }
+        text(NumBomb + "", x, y+size);
+      }
     } 
   }
   

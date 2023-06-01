@@ -26,7 +26,7 @@ void draw(){
   display();
   fill(0) ;
   textSize(25) ;
-  text("Time: " + time, 450, 25) ;
+  text("Time: " + time, 320, 60) ;
   frameRate(20) ;
   if(frameCount%20 == 0 && !lose && !win){
     time++ ;
@@ -171,12 +171,12 @@ void display(){
       
       fill(255,0,0);
       stroke(0);
-      line(250,30,250,70);
-      triangle(250, 30, 250, 50, 280, 40);
+      line(190,30,190,70);
+      triangle(190, 30, 190, 50, 220, 40);
       
       fill(0);
       textSize(25) ;
-      text(FLAGS+" ", 290, 60) ;
+      text(FLAGS+" ", 230, 60) ;
       
       fill(0);
       textSize(25) ;
@@ -352,8 +352,10 @@ if(mouseButton == LEFT){
     }
   }
   else{
+    if(mouseY > 100){
     board[mouseX/50][mouseY/50 - 2].setFlag(false);
     FLAGS++;
+    }
   }
 }
 
