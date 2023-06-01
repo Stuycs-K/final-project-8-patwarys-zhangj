@@ -52,6 +52,17 @@ Updated firstClick method
 
 Updated the displaying of squares which have no bombs around them
 
+
+### 5/31/23
+
+Fixed all the issues with flagging
+
+Merged Retry into the main branch
+
+Fixed errors within main
+
+Updated the visuals of the game
+
 ## Junling Zhang
 
 ### 5/22/23
