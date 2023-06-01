@@ -64,7 +64,7 @@ void draw(){
         
         fill(255);
         stroke(0);
-        circle(width-370, height - 225, 25);
+        circle(width-383, height - 235, 25);
         
         fill(0);
         stroke(0);
