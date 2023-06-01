@@ -7,6 +7,7 @@ int MINES;
 int FLAGS = 0;
 int click = 0;
 int score = 0;
+int time = 0 ;
 boolean lose = false;
 boolean retry = false;
 boolean win = false ;
@@ -14,7 +15,7 @@ boolean win = false ;
 void setup(){
   size(600, 600);
   ROWS = 12;
-  COLS = 12;
+  COLS = 10;
   MINES = 25 ;
   board = new TILE[ROWS][COLS] ;
   makeBoard() ;
@@ -23,6 +24,13 @@ void setup(){
 void draw(){
   
   display();
+  fill(0) ;
+  textSize(25) ;
+  text("Time: " + time, 450, 25) ;
+  frameRate(20) ;
+  if(frameCount%20 == 0 && !lose && !win){
+    time++ ;
+  }  
   if(lose == true){
     for(int x = 0; x <= width - SQUARE_SIZE; x += SQUARE_SIZE) {
     for(int y = 100; y <= height - SQUARE_SIZE; y += SQUARE_SIZE) {
@@ -61,6 +69,18 @@ void draw(){
         fill(0);
         stroke(0);
         triangle(width-355,height-215,width-358,height-227,width-368,height-218);
+        }
+      }
+  }else if(win == true){
+    for(int x = 0; x <= width - SQUARE_SIZE; x += SQUARE_SIZE) {
+    for(int y = 100; y <= height - SQUARE_SIZE; y += SQUARE_SIZE) {
+      fill(100,255,0);
+        stroke(0);
+        square(x, y, 100);
+        
+        fill(0);
+        textSize(25) ;
+        text("MINES  CLEARED", width/3, height-250) ;
         }
       }
   }
@@ -140,9 +160,6 @@ void display(){
       board[i][j].display(i * SQUARESIZE, (j * SQUARESIZE) + (height - width), SQUARESIZE) ;
     }
   } */
-  
-  int row = 0;
-  int col = 0;
       fill(34,139,34);
       stroke(0);
       rect(0.0,0.0,600.0,100.0);
@@ -181,13 +198,10 @@ void display(){
         stroke(0);
         square(x, y, 100);
       } */
-      row++;
     }
-    row = 0;
-    col++;
   }
   
-   int SQUARESIZE = 50 ;
+   int SQUARESIZE = width/ROWS ;
   for(int i = 0 ; i < ROWS; i++){
     for(int j = 0 ; j < COLS; j++){
       board[i][j].display(i * SQUARESIZE, (j * SQUARESIZE) + (100), SQUARESIZE) ;
@@ -198,7 +212,7 @@ void display(){
 
 void mouseClicked() {
   //firstClick not done
-  if(mouseButton == RIGHT  && board[mouseX/50][mouseY/50].getFlagged() == false){
+  if(mouseButton == RIGHT  && board[mouseX/50][mouseY/50 - 2].getFlagged() == false){
     
     if (click == 0){
      click++;
@@ -232,19 +246,19 @@ void mouseClicked() {
        reveal((mouseX+100)/50,(mouseY+200)/50);
      } 
      if(mouseY >= 450 && mouseX > 100){
-       reveal(mouseX/50,mouseY/50);
-       reveal(mouseX/50,(mouseY-50)/50);
-       reveal(mouseX/50,(mouseY-100)/50);
-       reveal(mouseX/50,(mouseY-150)/50);
-       reveal(mouseX/50,(mouseY-200)/50);
-       reveal((mouseX-50)/50,(mouseY-50)/50);
-       reveal((mouseX-50)/50,(mouseY-100)/50);
-       reveal((mouseX-50)/50,(mouseY-150)/50);
-       reveal((mouseX-50)/50,(mouseY-200)/50);
-       reveal((mouseX-100)/50,(mouseY-100)/50);
-       reveal((mouseX-100)/50,(mouseY-150)/50);
-       reveal((mouseX-100)/50,(mouseY-250)/50);
-       reveal((mouseX-100)/50,(mouseY-200)/50);
+       reveal(mouseX/50,mouseY/50 - 2);
+       reveal(mouseX/50,(mouseY-50)/50 - 2);
+       reveal(mouseX/50,(mouseY-100)/50 - 2);
+       reveal(mouseX/50,(mouseY-150)/50 - 2);
+       reveal(mouseX/50,(mouseY-200)/50 - 2);
+       reveal((mouseX-50)/50,(mouseY-50)/50 - 2);
+       reveal((mouseX-50)/50,(mouseY-100)/50 - 2);
+       reveal((mouseX-50)/50,(mouseY-150)/50 - 2);
+       reveal((mouseX-50)/50,(mouseY-200)/50 - 2);
+       reveal((mouseX-100)/50,(mouseY-100)/50 - 2);
+       reveal((mouseX-100)/50,(mouseY-150)/50 - 2);
+       reveal((mouseX-100)/50,(mouseY-250)/50 - 2);
+       reveal((mouseX-100)/50,(mouseY-200)/50 - 2);
      } 
      if(mouseY > 400 && mouseY < 450 && mouseX < width - 100){
        reveal(mouseX/50,mouseY/50);
@@ -271,6 +285,10 @@ void mouseClicked() {
       for(int x = mouseX; x <= 400; x += SQUARE_SIZE) {
         for(int y = mouseY; y <= 250; y += SQUARE_SIZE) {
          reveal(x/50, y/50);    
+         reveal(x/50, y/50) ; 
+         if(checkFinished()){
+          win = true ;
+        }
         }
       }
       click++;
@@ -280,6 +298,9 @@ void mouseClicked() {
       for(int x = mouseX; x <= 400; x += SQUARE_SIZE) {
         for(int y = mouseY; y <= 250; y += SQUARE_SIZE) {
          reveal(x/50,y/50) ;  
+         if(checkFinished()){
+          win = true ;
+        }
         }
       }
     }
@@ -292,6 +313,10 @@ void mouseClicked() {
   if(lose == false){
     if(board[col][row].getBomb() == false){ 
       reveal(col, row);
+      reveal(col, row) ;
+      if(checkFinished()){
+        win = true ;
+      }
     }
     else{
       //board[col][row].reveal();
@@ -312,7 +337,7 @@ void mouseClicked() {
 }
 
 if(mouseButton == LEFT){
-  if(board[mouseX/50][mouseY/50].getFlagged() == false && FLAGS > 0){
+  if(board[mouseX/50][mouseY/50 - 2].getFlagged() == false && FLAGS > 0){
     if(mouseY > 100){
       color a = get(mouseX, mouseY);
       color b = color(0,255,0);
@@ -488,4 +513,15 @@ void keyPressed(){
       }
     }
   }
+}
+
+boolean checkFinished(){
+  for(int i = 0; i < board.length ; i++){
+    for(int j = 0; j < board[i].length; j++){
+      if(!board[i][j].getBomb() && !board[i][j].getRevealed()){
+        return false ;
+      }
+    }
+  }
+  return true ;
 }
