@@ -1,20 +1,12 @@
 public class TILE{
 boolean Bomb, flagged, revealed ;
-int NumBomb, flagNum;
+int NumBomb;
 
 public TILE(boolean bomb){
   Bomb = bomb ;
   NumBomb = 0 ;
   flagged = false ;
   revealed = false ;
-}
-
-public void setFlagNum(int x){
-  flagNum = x;
-}
-
-public int getFlagNum(){
-  return flagNum;
 }
 
 public void flag(){
@@ -79,8 +71,8 @@ public void display(float x, float y, float size){
     if(flagged == true){
     fill(255,0,0);
     stroke(0);
-    line(x+20,y-90,x+20,y-60);
-    triangle(x+20, y-90, x+20, y-75, x+40, y-80);
+    line(x+20,y+10,x+20,y+40);
+    triangle(x+20, y+10, x+20, y+25, x+40, y+20);
   }
   
 }

@@ -212,7 +212,7 @@ void display(){
 
 void mouseClicked() {
   //firstClick not done
-  if(mouseButton == RIGHT  && board[mouseX/50][mouseY/50 - 2].getFlagged() == false){
+  if(mouseY > 100 && mouseButton == RIGHT  && board[mouseX/50][mouseY/50 - 2].getFlagged() == false){
     
     if (click == 0){
      click++;
@@ -337,22 +337,22 @@ void mouseClicked() {
 }
 
 if(mouseButton == LEFT){
-  if(board[mouseX/50][mouseY/50 - 2].getFlagged() == false && FLAGS > 0){
-    if(mouseY > 100){
+  if(mouseY > 100 && board[mouseX/50][mouseY/50-2].getFlagged() == false){
+    if(FLAGS > 0){
       color a = get(mouseX, mouseY);
       color b = color(0,255,0);
       color c = color(0,0,255);
       color d = color(0);
       color e = color(255);
       color f = color(144,238,144);
-      if(a != b && a != c && a != d && a != e && a == f){
-      board[mouseX/50][mouseY/50].setFlag(true);
+      if(a != b && a != c && a == f){
+      board[mouseX/50][mouseY/50 - 2].setFlag(true);
       FLAGS--;
       }
     }
   }
-  else if(board[mouseX/50][mouseY/50].getFlagged() == true){
-    board[mouseX/50][mouseY/50].setFlag(false);
+  else{
+    board[mouseX/50][mouseY/50 - 2].setFlag(false);
     FLAGS++;
   }
 }
