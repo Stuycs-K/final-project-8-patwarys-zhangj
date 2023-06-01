@@ -9,7 +9,7 @@ int click = 0;
 int score = 0;
 boolean lose = false;
 boolean retry = false;
-
+boolean win = false ;
 
 void setup(){
   size(600, 600);
@@ -64,6 +64,16 @@ void draw(){
         }
       }
   }
+  
+  /* for(int x = 0; x <= width - SQUARE_SIZE; x += SQUARE_SIZE) {
+    for(int y = 100; y <= height - SQUARE_SIZE; y += SQUARE_SIZE) {
+      if(board[x/50][y/50].getRevealed() == true && board[x/50][y/50].getFlagged() == true){
+        board[x/50][y/50].setFlag(false);
+        FLAGS++;
+      }
+    }
+   } */
+  
 }
 
 public void makeBoard(){
@@ -303,9 +313,17 @@ void mouseClicked() {
 
 if(mouseButton == LEFT){
   if(board[mouseX/50][mouseY/50].getFlagged() == false && FLAGS > 0){
-    if(mouseY > 100 && board[mouseX/50][mouseY/50].getRevealed() == false){
+    if(mouseY > 100){
+      color a = get(mouseX, mouseY);
+      color b = color(0,255,0);
+      color c = color(0,0,255);
+      color d = color(0);
+      color e = color(255);
+      color f = color(144,238,144);
+      if(a != b && a != c && a != d && a != e && a == f){
       board[mouseX/50][mouseY/50].setFlag(true);
       FLAGS--;
+      }
     }
   }
   else if(board[mouseX/50][mouseY/50].getFlagged() == true){
@@ -366,25 +384,25 @@ void reveal(int x, int y){
   if(board[x][y].getNumBomb() == 0){
           if(x != 0 && !board[x-1][y].getRevealed()){
           reveal(x-1, y) ;
-          board[x-1][y].setRevealed(true);
+          //board[x-1][y].setRevealed(true);
           }
       if(x != ROWS - 1 && !board[x+1][y].getRevealed()){
           reveal(x + 1, y) ;
-          board[x+1][y].setRevealed(true);
+          //board[x+1][y].setRevealed(true);
        }
       if(y != 0 && !board[x][y-1].getRevealed()){
           reveal(x, y - 1);
-          board[x][y-1].setRevealed(true);
+          //board[x][y-1].setRevealed(true);
       }
       if(y != COLS - 1 && !board[x][y+1].getRevealed()){
           reveal(x, y + 1) ;
-          board[x][y+1].setRevealed(true);                    
+          //board[x][y+1].setRevealed(true);                    
       }
-  }
+  } 
   //board[x][y].setFlag(false);
 }
 
-void reset(){
+/* void reset(){
    if(retry == true){
      for(int x = 0; x <= width - SQUARE_SIZE; x += SQUARE_SIZE) {
        for(int y = 100; y <= height - SQUARE_SIZE; y += SQUARE_SIZE) {
@@ -433,4 +451,41 @@ void reset(){
     }
    }
   } 
+} */
+
+void keyPressed(){
+  if(key == 'w' || key == 'W'){
+    lose = false ;
+    win = false ;
+    score = 0 ;
+    for(int i = 0; i < board.length; i++){
+      for(int j = 0; j < board[i].length; j++){
+        board[i][j] = new TILE(false) ;
+      }
+    }
+    board[0][0] = new TILE(true) ;
+    board[1][1] = new TILE(true) ;
+  }
+  if(key == 'p' || key == 'P'){
+    for(int i = 0; i < board.length; i++){
+      for(int j = 0; j < board[i].length; j++){
+        if(board[i][j].getBomb()){
+          fill(255, 0, 0) ;
+          ellipseMode(CORNER) ;
+          circle(i * width/ROWS , (j * width/ROWS) + 100, width/ROWS) ;
+        }
+      }
+    }
+  }
+  if(key == 'r' || key == 'R'){
+    for(int i = 0; i < board.length; i++){
+      for(int j = 0; j < board[i].length; j++){
+        if(board[i][j].getRevealed()){
+          fill(0, 0, 255) ;
+          ellipseMode(CORNER) ;
+          circle(i * width/ROWS , (j * width/ROWS) + 100, width/ROWS) ;
+        }
+      }
+    }
+  }
 }

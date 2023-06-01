@@ -1,12 +1,20 @@
 public class TILE{
 boolean Bomb, flagged, revealed ;
-int NumBomb ;
+int NumBomb, flagNum;
 
 public TILE(boolean bomb){
   Bomb = bomb ;
   NumBomb = 0 ;
   flagged = false ;
   revealed = false ;
+}
+
+public void setFlagNum(int x){
+  flagNum = x;
+}
+
+public int getFlagNum(){
+  return flagNum;
 }
 
 public void flag(){
