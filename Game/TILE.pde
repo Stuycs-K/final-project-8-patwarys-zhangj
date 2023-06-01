@@ -41,6 +41,10 @@ public boolean getBomb(){
   return Bomb ;
 }
 
+public void setBomb(boolean x){
+  Bomb = x;
+}
+
 public int getNumBomb(){
   return NumBomb ;
 }

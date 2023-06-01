@@ -213,8 +213,13 @@ void display(){
 void mouseClicked() {
   //firstClick not done
   if(mouseY > 100 && mouseButton == RIGHT  && board[mouseX/50][mouseY/50 - 2].getFlagged() == false){
-    
+      
     if (click == 0){
+      
+     if(board[mouseX/50][mouseY/50 - 2].getBomb() == true){
+        board[mouseX/50][mouseY/50 - 2].setBomb(false);
+      }
+      
      click++;
      if(mouseY < 250 && mouseX < width-100){
        reveal(mouseX/50,mouseY/50);
@@ -232,18 +237,18 @@ void mouseClicked() {
        reveal((mouseX+100)/50,(mouseY+200)/50);
      }
      if(mouseY > 250 && mouseY <= 400 && mouseX < width-100){
-       reveal(mouseX/50,mouseY/50);
-       reveal(mouseX/50,(mouseY+50)/50);
-       reveal(mouseX/50,(mouseY+100)/50);
-       reveal(mouseX/50,(mouseY+150)/50);
-       reveal(mouseX/50,(mouseY+200)/50);
-       reveal((mouseX+50)/50,(mouseY+50)/50);
-       reveal((mouseX+50)/50,(mouseY+100)/50);
-       reveal((mouseX+50)/50,(mouseY+150)/50);
-       reveal((mouseX+50)/50,(mouseY+200)/50);
-       reveal((mouseX+100)/50,(mouseY+100)/50);
-       reveal((mouseX+100)/50,(mouseY+150)/50);
-       reveal((mouseX+100)/50,(mouseY+200)/50);
+       reveal(mouseX/50,mouseY/50 - 2);
+       reveal(mouseX/50,(mouseY+50)/50 - 2);
+       reveal(mouseX/50,(mouseY+100)/50 - 2);
+       reveal(mouseX/50,(mouseY+150)/50 - 2);
+       reveal(mouseX/50,(mouseY+200)/50 - 2);
+       reveal((mouseX+50)/50,(mouseY+50)/50 - 2);
+       reveal((mouseX+50)/50,(mouseY+100)/50 - 2);
+       reveal((mouseX+50)/50,(mouseY+150)/50 - 2);
+       reveal((mouseX+50)/50,(mouseY+200)/50 - 2);
+       reveal((mouseX+100)/50,(mouseY+100)/50 - 2);
+       reveal((mouseX+100)/50,(mouseY+150)/50 - 2);
+       reveal((mouseX+100)/50,(mouseY+200)/50 - 2);
      } 
      if(mouseY >= 450 && mouseX > 100){
        reveal(mouseX/50,mouseY/50 - 2);
@@ -260,24 +265,24 @@ void mouseClicked() {
        reveal((mouseX-100)/50,(mouseY-250)/50 - 2);
        reveal((mouseX-100)/50,(mouseY-200)/50 - 2);
      } 
-     if(mouseY > 400 && mouseY < 450 && mouseX < width - 100){
-       reveal(mouseX/50,mouseY/50);
-       reveal(mouseX/50,(mouseY-50)/50);
-       reveal(mouseX/50,(mouseY-100)/50);
-       reveal(mouseX/50,(mouseY-150)/50);
-       reveal(mouseX/50,(mouseY-200)/50);
-       reveal((mouseX-50)/50,(mouseY-50)/50);
-       reveal((mouseX-50)/50,(mouseY-100)/50);
-       reveal((mouseX-50)/50,(mouseY-150)/50);
-       reveal((mouseX-50)/50,(mouseY-200)/50);
-       reveal((mouseX-100)/50,(mouseY-100)/50);
-       reveal((mouseX-100)/50,(mouseY-150)/50);
-       reveal((mouseX-100)/50,(mouseY-250)/50);
-       reveal((mouseX-100)/50,(mouseY-200)/50);
-     } 
+     if(mouseY > 400 && mouseY < 450 && mouseX > 100){
+       reveal(mouseX/50,mouseY/50 - 2);
+       reveal(mouseX/50,(mouseY-50)/50 - 2);
+       reveal(mouseX/50,(mouseY-100)/50 - 2);
+       reveal(mouseX/50,(mouseY-150)/50 - 2);
+       reveal(mouseX/50,(mouseY-200)/50 - 2);
+       reveal((mouseX-50)/50,(mouseY-50)/50 - 2);
+       reveal((mouseX-50)/50,(mouseY-100)/50 - 2);
+       reveal((mouseX-50)/50,(mouseY-150)/50 - 2);
+       reveal((mouseX-50)/50,(mouseY-200)/50 - 2);
+       reveal((mouseX-100)/50,(mouseY-100)/50 - 2);
+       reveal((mouseX-100)/50,(mouseY-150)/50 - 2);
+       reveal((mouseX-100)/50,(mouseY-250)/50 - 2);
+       reveal((mouseX-100)/50,(mouseY-200)/50 - 2);
+     }  
     } 
     
-  /* if(click == 0){
+  /*if(click == 0){
     int row = mouseX/50;
     int col = mouseY/50;
     if(board[row][col].getBomb() == true){
