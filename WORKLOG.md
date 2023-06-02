@@ -63,6 +63,18 @@ Fixed errors within main
 
 Updated the visuals of the game
 
+### 6/1/23
+
+Fixed issues with display and firstClick
+
+Added a display for the timer
+
+Started working on making different levels
+
+Merged the changes from Modes branch into the main branch
+
+Cleared up unnecessary code from main branch
+
 ## Junling Zhang
 
 ### 5/22/23
