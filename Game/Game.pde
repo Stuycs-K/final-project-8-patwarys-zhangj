@@ -364,7 +364,7 @@ void reveal(int x, int y){
       if(y != COLS - 1 && !board[x][y+1].getRevealed()){
           reveal(x, y + 1) ;                    
       }
-  } 
+   } 
 }
 
 void keyPressed(){
