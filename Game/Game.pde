@@ -1,4 +1,4 @@
-TILE[][] board = new TILE[10][10];
+TILE[][] board;;
 int SQUARE_SIZE = 50;
 int Mode;
 int ROWS;
@@ -11,14 +11,28 @@ int time = 0 ;
 boolean lose = false;
 boolean retry = false;
 boolean win = false ;
+int Level = 1;
 
 void setup(){
   size(600, 600);
-  ROWS = 12;
-  COLS = 10;
-  MINES = 25 ;
-  board = new TILE[ROWS][COLS] ;
-  makeBoard() ;
+  
+  if(Level == 2){
+    ROWS = 12;
+    COLS = 10;
+    MINES = 25 ;
+    board = new TILE[ROWS][COLS] ;
+    makeBoard() ;
+  }
+  
+  if(Level == 1){
+    SQUARE_SIZE = 100;
+    ROWS = 6;
+    COLS = 5;
+    MINES = 5;
+    board = new TILE[ROWS][COLS] ;
+    makeBoard() ;
+  }
+  
 }
 
 void draw(){
@@ -42,7 +56,7 @@ void draw(){
         textSize(25) ;
         text("GAME   OVER", width-365, height-300) ;
         
-        fill(144,238,144);
+        /* fill(144,238,144);
         stroke(0);
         square(width-350, height - 250, 50);
                 
@@ -56,7 +70,11 @@ void draw(){
         
         fill(144,238,144);
         stroke(0);
-        square(width-400, height - 250, 50);
+        square(width-400, height - 250, 50); */
+        
+        fill(144,238,144);
+        stroke(0);
+        rect(width-400, height - 250, 200, 50);
         
         fill(0);
         textSize(25) ;
@@ -227,7 +245,7 @@ void display(){
 
 
 void mouseClicked() {
-  //firstClick not done
+  if(Level == 2){
   if(mouseY > 100 && mouseButton == RIGHT  && board[mouseX/50][mouseY/50 - 2].getFlagged() == false){
       
     if (click == 0){
@@ -378,7 +396,54 @@ if(mouseButton == LEFT){
     FLAGS++;
     }
   }
+ }
 }
+  
+  if(Level == 1){
+    if(mouseY > 100){
+      board[mouseX/100][mouseY/100 - 1].setDiff(1); 
+    }
+    if(mouseY > 100 && mouseButton == RIGHT  && board[mouseX/100][mouseY/100 - 1].getFlagged() == false){
+    int col = mouseX/100;
+    int row = (mouseY - 100)/100;
+    if(lose == false){
+      if(board[col][row].getBomb() == false){ 
+        reveal(col, row);
+        if(checkFinished()){
+          win = true ;
+        }
+       }
+      else{
+      //board[col][row].reveal();
+        lose = true;
+      }
+     }
+    }
+    
+    if(mouseButton == LEFT){
+  if(mouseY > 100 && board[mouseX/100][mouseY/100-1].getFlagged() == false){
+    if(FLAGS > 0){
+      color a = get(mouseX, mouseY);
+      color b = color(0,255,0);
+      color c = color(0,0,255);
+      color d = color(0);
+      color e = color(255);
+      color f = color(144,238,144);
+      if(a != b && a != c && a == f){
+      board[mouseX/100][mouseY/100 - 1].setFlag(true);
+      FLAGS--;
+      }
+    }
+  }
+  else{
+    if(mouseY > 100){
+    board[mouseX/100][mouseY/100 - 1].setFlag(false);
+    FLAGS++;
+    }
+  }
+ }
+ 
+  }
 
 }
 

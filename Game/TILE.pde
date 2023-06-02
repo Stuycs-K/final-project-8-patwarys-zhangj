@@ -1,6 +1,7 @@
 public class TILE{
 boolean Bomb, flagged, revealed ;
 int NumBomb;
+int diff = 2;
 
 public TILE(boolean bomb){
   Bomb = bomb ;
@@ -13,6 +14,10 @@ public void flag(){
   if(!revealed){
     flagged = !flagged ;
   }
+}
+
+public void setDiff(int x){
+ diff = x; 
 }
 
 public void reveals(){
@@ -86,11 +91,18 @@ public void display(float x, float y, float size){
     } 
   }
   
-    if(flagged == true){
+    if(flagged == true && diff == 2){
     fill(255,0,0);
     stroke(0);
     line(x+20,y+10,x+20,y+40);
     triangle(x+20, y+10, x+20, y+25, x+40, y+20);
+  }
+  
+  if(flagged == true && diff == 1){
+    fill(255,0,0);
+    stroke(0);
+    line(x+30,y+10,x+30,y+90);
+    triangle(x+30, y+10, x+30, y+45, x+70, y+30);
   }
   
 }
