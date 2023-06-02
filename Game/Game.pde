@@ -62,6 +62,7 @@ void draw(){
         textSize(25) ;
         text("TRY   AGAIN", width-340, height-215) ;
         
+        ellipseMode(CORNER) ;
         fill(255);
         stroke(0);
         circle(width-383, height - 235, 25);
@@ -94,6 +95,7 @@ void draw(){
     }
    } */
    
+   ellipseMode(CENTER);
    stroke(0);
    fill(255);
    ellipse(width/2+45, height/2 - 250, 40, 40);
