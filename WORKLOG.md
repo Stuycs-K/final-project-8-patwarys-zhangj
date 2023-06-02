@@ -127,3 +127,6 @@ edited Prototype
 added keyPressed()
 
 added three cheat keys to show mines and tile that the program thinks are revealed and a two mine board
+
+### 6/2/23
+edited ReadMe
