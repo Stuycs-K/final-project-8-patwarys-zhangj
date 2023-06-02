@@ -26,7 +26,7 @@ void draw(){
   display();
   fill(0) ;
   textSize(25) ;
-  text("Time: " + time, 320, 60) ;
+  text(time, 380, 60) ;
   frameRate(20) ;
   if(frameCount%20 == 0 && !lose && !win){
     time++ ;
@@ -93,6 +93,20 @@ void draw(){
       }
     }
    } */
+   
+   stroke(0);
+   fill(255);
+   ellipse(width/2+45, height/2 - 250, 40, 40);
+    
+   float sec = map(second(), 0, 60, 0, 6.28) - 1.57;
+
+   stroke(0);
+   line(width/2+45, height/2 - 250, width/2+45 + cos(sec) * 20 * .95, height/2 - 250 + sin(sec) * 20 * .95);
+   
+   line(width/2+45-19, height/2 - 250, width/2+45- 10, height/2-250);
+   line(width/2+45+10, height/2 - 250, width/2+45+19, height/2-250);
+   line(width/2+45, height/2 - 240, width/2+45, height/2-230);
+   line(width/2+45, height/2 - 270, width/2+45, height/2-260);
   
 }
 
@@ -171,12 +185,12 @@ void display(){
       
       fill(255,0,0);
       stroke(0);
-      line(190,30,190,70);
-      triangle(190, 30, 190, 50, 220, 40);
+      line(210,30,210,70);
+      triangle(210, 30, 210, 50, 235, 40);
       
       fill(0);
       textSize(25) ;
-      text(FLAGS+" ", 230, 60) ;
+      text(FLAGS+" ", 240, 60) ;
       
       fill(0);
       textSize(25) ;
