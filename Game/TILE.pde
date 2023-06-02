@@ -16,9 +16,7 @@ public void flag(){
 }
 
 public void reveals(){
-  //if(flagged == false){
     revealed = true ;
-  //}
 }
 
 public boolean getFlagged(){

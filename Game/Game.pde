@@ -86,15 +86,6 @@ void draw(){
       }
   }
   
-  /* for(int x = 0; x <= width - SQUARE_SIZE; x += SQUARE_SIZE) {
-    for(int y = 100; y <= height - SQUARE_SIZE; y += SQUARE_SIZE) {
-      if(board[x/50][y/50].getRevealed() == true && board[x/50][y/50].getFlagged() == true){
-        board[x/50][y/50].setFlag(false);
-        FLAGS++;
-      }
-    }
-   } */
-   
    ellipseMode(CENTER);
    stroke(0);
    fill(255);
@@ -116,26 +107,7 @@ public void makeBoard(){
   int mines = MINES ;
   
  if(Mode == 0){
-   /*
-   for(int i = 0; i<10; i++){
-    for(int j = 0; j<10; j++){
-      board[i][j] = new TILE(false);
-    }
-   }
-   */
-   /*
-   for(int i = 0; i<ROWS; i++){
-    for(int j = 0; j<COLS; j++){
-      if(random(100) < 25 && mines != 0){
-        board[i][j] = new TILE(true) ;
-        mines-- ;
-        FLAGS++ ;
-      }else{
-        board[i][j] = new TILE(false);
-      }  
-  }
-  }
-  */
+
   while(mines > 0){
     for(int i = 0; i<ROWS; i++){
       for(int j = 0; j<COLS; j++){
@@ -170,12 +142,7 @@ public void makeBoard(){
 
 
 void display(){
-   /* int SQUARESIZE = 50 ;
-  for(int i = 0 ; i < ROWS; i++){
-    for(int j = 0 ; j < COLS; j++){
-      board[i][j].display(i * SQUARESIZE, (j * SQUARESIZE) + (height - width), SQUARESIZE) ;
-    }
-  } */
+
       fill(34,139,34);
       stroke(0);
       rect(0.0,0.0,600.0,100.0);
@@ -204,16 +171,6 @@ void display(){
         fill(144,238,144);
         stroke(0);
         square(x, y, 100);
-      /* if(board[row][col].getNumBomb() > 0){
-        fill(0,255,0);
-        stroke(0);
-        square(x, y, 100);
-      } 
-      if(board[row][col].getNumBomb() == -1){
-        fill(255,0,0);
-        stroke(0);
-        square(x, y, 100);
-      } */
     }
   }
   
@@ -227,7 +184,6 @@ void display(){
 
 
 void mouseClicked() {
-  //firstClick not done
   if(mouseY > 100 && mouseButton == RIGHT  && board[mouseX/50][mouseY/50 - 2].getFlagged() == false){
       
     if (click == 0){
@@ -297,38 +253,7 @@ void mouseClicked() {
        reveal((mouseX-100)/50,(mouseY-200)/50 - 2);
      }  
     } 
-    
-  /*if(click == 0){
-    int row = mouseX/50;
-    int col = mouseY/50;
-    if(board[row][col].getBomb() == true){
-      board[row][col].setNumBomb(1);
-      for(int x = mouseX; x <= 400; x += SQUARE_SIZE) {
-        for(int y = mouseY; y <= 250; y += SQUARE_SIZE) {
-         reveal(x/50, y/50);    
-         reveal(x/50, y/50) ; 
-         if(checkFinished()){
-          win = true ;
-        }
-        }
-      }
-      click++;
-    }
-    else{
-      click++;
-      for(int x = mouseX; x <= 400; x += SQUARE_SIZE) {
-        for(int y = mouseY; y <= 250; y += SQUARE_SIZE) {
-         reveal(x/50,y/50) ;  
-         if(checkFinished()){
-          win = true ;
-        }
-        }
-      }
-    }
-    click++;
-  } */
-  
-  //else{
+
   int col = mouseX/50;
   int row = (mouseY - 100)/50;
   if(lose == false){
@@ -340,7 +265,6 @@ void mouseClicked() {
       }
     }
     else{
-      //board[col][row].reveal();
       lose = true;
     }
   }
@@ -351,8 +275,6 @@ void mouseClicked() {
      retry = true; 
      lose = false;
      score = 0;
-     //click = 0;
-     //MINES = 25;
    }
   }
 }
@@ -432,74 +354,18 @@ void reveal(int x, int y){
   if(board[x][y].getNumBomb() == 0){
           if(x != 0 && !board[x-1][y].getRevealed()){
           reveal(x-1, y) ;
-          //board[x-1][y].setRevealed(true);
           }
       if(x != ROWS - 1 && !board[x+1][y].getRevealed()){
           reveal(x + 1, y) ;
-          //board[x+1][y].setRevealed(true);
        }
       if(y != 0 && !board[x][y-1].getRevealed()){
           reveal(x, y - 1);
-          //board[x][y-1].setRevealed(true);
       }
       if(y != COLS - 1 && !board[x][y+1].getRevealed()){
-          reveal(x, y + 1) ;
-          //board[x][y+1].setRevealed(true);                    
+          reveal(x, y + 1) ;                    
       }
   } 
-  //board[x][y].setFlag(false);
 }
-
-/* void reset(){
-   if(retry == true){
-     for(int x = 0; x <= width - SQUARE_SIZE; x += SQUARE_SIZE) {
-       for(int y = 100; y <= height - SQUARE_SIZE; y += SQUARE_SIZE) {
-        fill(144,238,144);
-        stroke(0);
-        square(x, y, 100);
-      }
-    }
-    
-   int SQUARESIZE = 50 ;
-     for(int i = 0 ; i < ROWS; i++){
-      for(int j = 0 ; j < COLS; j++){
-        board[i][j].display(i * SQUARESIZE, (j * SQUARESIZE) + (100), SQUARESIZE) ;
-    }
-  }
-    
-    for(int x = 0; x <= width - SQUARE_SIZE; x += SQUARE_SIZE) {
-      for(int y = 100; y <= height - SQUARE_SIZE; y += SQUARE_SIZE) {
-        board[x/50][y/50].setRevealed(false);
-      }
-    }
-    //makeBoard
-    int mines = MINES ;
-  
- if(Mode == 0){
-  while(mines > 0){
-    for(int i = 0; i<ROWS; i++){
-      for(int j = 0; j<COLS; j++){
-        if(board[i][j] == null){
-          if(random(100) < 25 && mines != 0){
-            board[i][j] = new TILE(true) ;
-            mines-- ;
-            FLAGS++;
-          }else{
-            board[i][j] = new TILE(false);
-          }
-        }else{
-          if(random(100) < 25 && mines != 0 && !board[i][j].getBomb()){
-            board[i][j] = new TILE(true) ;
-            mines-- ;
-            FLAGS++ ;
-          }
-        }
-      }
-     }  
-    }
-   }
-  } 
-} */
 
 void keyPressed(){
   if(key == 'w' || key == 'W'){
