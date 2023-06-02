@@ -15,4 +15,5 @@ tiles that they think contains mines.
 
 ## Instructions
 Left Click To Flag A Tile
+
 Right Click To Reveal A Tile
