@@ -12,7 +12,7 @@ Added setup, draw, makeBoard, and instance variables
 
 Continued working on the Game Class
 
-Worked on displaying the board 
+Worked on displaying the board
 
 Started on working on basics of how clicking affects the board
 
@@ -22,7 +22,7 @@ Continued working on mouseClicked -- firstClick, which reveals a random number o
 
 Fixed grid to make it work with display and fixed mouseClicked
 
-Made additional changes to firstClick 
+Made additional changes to firstClick
 
 ### 5/25/23
 
@@ -115,11 +115,11 @@ fixed impossible NumBomb value bug/error
 ### 5/30/23
 created timer branch
 
-Added timer 
+Added timer
 
 merged timer branch into the main branch
 
-added and implemented checkFinsihed()
+added and implemented checkFinished()
 
 edited Prototype
 
@@ -130,3 +130,8 @@ added three cheat keys to show mines and tile that the program thinks are reveal
 
 ### 6/2/23
 edited ReadMe
+
+### 6/5/23
+Worked on Modes branch
+
+fixed non-stop timer clock mini-bug
