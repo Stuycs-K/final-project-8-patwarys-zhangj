@@ -201,7 +201,7 @@ void display(){
         
       fill(0);
       textSize(25) ;
-      text("Mode: Easy", 20, 60) ;
+      text("Level: " + Level, 20, 60) ;
       
       fill(255,0,0);
       stroke(0);
