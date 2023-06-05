@@ -12,6 +12,7 @@ boolean lose = false;
 boolean retry = false;
 boolean win = false ;
 int Level = 1;
+float sec = 0;
 
 void setup(){
   size(600, 600);
@@ -36,7 +37,6 @@ void setup(){
 }
 
 void draw(){
-  
   display();
   fill(0) ;
   textSize(25) ;
@@ -102,8 +102,21 @@ void draw(){
         text("MINES  CLEARED", width/3, height-250) ;
         }
       }
+  }else{ 
+     sec = map(time, 0, 60, 0, 6.28) - 1.57;
   }
+   ellipseMode(CENTER);
+   stroke(0);
+   fill(255);
+   ellipse(width/2+45, height/2 - 250, 40, 40);
   
+   stroke(0);
+   line(width/2+45, height/2 - 250, width/2+45 + cos(sec) * 20 * .95, height/2 - 250 + sin(sec) * 20 * .95);
+   
+   line(width/2+45-19, height/2 - 250, width/2+45- 10, height/2-250);
+   line(width/2+45+10, height/2 - 250, width/2+45+19, height/2-250);
+   line(width/2+45, height/2 - 240, width/2+45, height/2-230);
+   line(width/2+45, height/2 - 270, width/2+45, height/2-260);
   /* for(int x = 0; x <= width - SQUARE_SIZE; x += SQUARE_SIZE) {
     for(int y = 100; y <= height - SQUARE_SIZE; y += SQUARE_SIZE) {
       if(board[x/50][y/50].getRevealed() == true && board[x/50][y/50].getFlagged() == true){
@@ -112,21 +125,6 @@ void draw(){
       }
     }
    } */
-   
-   ellipseMode(CENTER);
-   stroke(0);
-   fill(255);
-   ellipse(width/2+45, height/2 - 250, 40, 40);
-    
-   float sec = map(second(), 0, 60, 0, 6.28) - 1.57;
-
-   stroke(0);
-   line(width/2+45, height/2 - 250, width/2+45 + cos(sec) * 20 * .95, height/2 - 250 + sin(sec) * 20 * .95);
-   
-   line(width/2+45-19, height/2 - 250, width/2+45- 10, height/2-250);
-   line(width/2+45+10, height/2 - 250, width/2+45+19, height/2-250);
-   line(width/2+45, height/2 - 240, width/2+45, height/2-230);
-   line(width/2+45, height/2 - 270, width/2+45, height/2-260);
   
 }
 
