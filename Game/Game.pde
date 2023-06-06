@@ -99,9 +99,25 @@ void draw(){
         
         fill(0);
         textSize(25) ;
-        text("MINES  CLEARED", width/3, height-250) ;
+        text("MINES  CLEARED", width/3, height-225) ;
         }
       }
+      fill(144,238,144);
+      stroke(0);
+      rect(width-400, height - 250, 200, 50);
+        
+      fill(0);
+      textSize(25) ;
+      text("PLAY   AGAIN", width-340, height-215) ;
+        
+      ellipseMode(CORNER) ;
+      fill(255);
+      stroke(0);
+      circle(width-383, height - 235, 25);
+        
+        fill(0);
+        stroke(0);
+        triangle(width-355,height-215,width-358,height-227,width-368,height-218);
   }else{ 
      sec = map(time, 0, 60, 0, 6.28) - 1.57;
   }
@@ -130,7 +146,7 @@ void draw(){
 
 public void makeBoard(){
   int mines = MINES ;
-  
+  FLAGS = 0 ;
  if(Mode == 0){
    /*
    for(int i = 0; i<10; i++){
@@ -243,7 +259,15 @@ void display(){
 
 
 void mouseClicked() {
-  if(Level == 2){
+  if(mouseX > width-400 && mouseY > height - 250 && mouseX <= width - 200 && mouseY <= height - 200 && win){
+    score = 0;
+    click = 0 ;
+    time = 0 ;
+    win = false ;
+    board = new TILE[ROWS][COLS] ;
+    makeBoard() ;
+  }
+  else if(Level == 2){
   if(mouseY > 100 && mouseButton == RIGHT  && board[mouseX/50][mouseY/50 - 2].getFlagged() == false){
       
     if (click == 0){
@@ -371,9 +395,7 @@ void mouseClicked() {
      //MINES = 25;
    }
   }
-}
-
-if(mouseButton == LEFT){
+}else if(mouseButton == LEFT){
   if(mouseY > 100 && board[mouseX/50][mouseY/50-2].getFlagged() == false){
     if(FLAGS > 0){
       color a = get(mouseX, mouseY);
@@ -395,9 +417,7 @@ if(mouseButton == LEFT){
     }
   }
  }
-}
-  
-  if(Level == 1){
+}else if(Level == 1){
     if(mouseY > 100){
       board[mouseX/100][mouseY/100 - 1].setDiff(1); 
     }
