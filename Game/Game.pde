@@ -464,7 +464,7 @@ if(mouseButton == LEFT){
   
   if(Level == 3){
     if(mouseY > 100){
-      board[mouseX/100][mouseY/100 - 1].setDiff(3); 
+      board[mouseX/35][mouseY/35 - 3].setDiff(3); 
     }
     if(mouseY > 100 && mouseButton == RIGHT  && board[mouseX/35][mouseY/35 - 3].getFlagged() == false){
     int col = mouseX/35;

@@ -104,6 +104,13 @@ public void display(float x, float y, float size){
     line(x+30,y+10,x+30,y+90);
     triangle(x+30, y+10, x+30, y+45, x+70, y+30);
   }
+    
+    if(flagged == true && diff == 3){
+    fill(255,0,0);
+    stroke(0);
+    line(x+13,y+8,x+13,y+30);
+    triangle(x+13, y+8, x+13, y+18, x+28, y+13);
+  }
   
 }
 
