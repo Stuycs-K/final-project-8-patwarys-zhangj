@@ -108,11 +108,7 @@ void draw(){
         
         fill(0);
         textSize(25) ;
-<<<<<<< HEAD
-        text("MINES  CLEARED", width/3, height-225) ;
-=======
         text("MINES  CLEARED", width/3 + 10, height-250) ;
->>>>>>> refs/remotes/origin/Modes
         }
       }
       fill(144,238,144);
