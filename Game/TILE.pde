@@ -64,29 +64,29 @@ public void display(float x, float y, float size){
   if(revealed){
     if(getBomb() == false){
       fill(0,255,0) ;
-    square(x, y, size) ;
+    square(x+5, y, size) ;
     fill(0,0,255) ;
     textSize(size) ;
     textAlign(LEFT) ;
     if(NumBomb == 0){
-      text("", x, y+size) ;
+      text("", x+5, y+size) ;
       fill(211,211,211) ;
-      square(x, y, size) ;
+      square(x+5, y, size) ;
     }
     if(NumBomb == 2){
      fill(255,0,0) ;
      textSize(size) ;
      textAlign(LEFT) ;
-     text(NumBomb + "", x, y+size) ;
+     text(NumBomb + "", x+5, y+size) ;
     }
     if(NumBomb>2){
      fill(128,0,128) ;
      textSize(size) ;
      textAlign(LEFT) ;
-     text(NumBomb + "", x, y+size) ;
+     text(NumBomb + "", x+5, y+size) ;
     } 
     else{
-        text(NumBomb + "", x, y+size);
+        text(NumBomb + "", x+5, y+size);
       }
     } 
   }

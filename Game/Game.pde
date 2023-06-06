@@ -134,6 +134,24 @@ void draw(){
       }
     }
    } */
+   
+   
+        fill(0);
+        stroke(0);
+        rect(595, 100, 5, 490);
+   
+        fill(0);
+        stroke(0);
+        rect(0, 590, 590, 10);
+        
+        fill(0);
+        stroke(0);
+        rect(590, 590, 10, 10);
+        
+        fill(0);
+        stroke(0);
+        rect(0, 100, 5, 500);
+   
   
 }
 
@@ -223,6 +241,8 @@ void display(){
       textSize(25) ;
       text("Score : " + score, 450, 60) ;
       
+      if(Level == 1 || Level == 3){
+      
   for(int x = 0; x <= width - SQUARE_SIZE; x += SQUARE_SIZE) {
     for(int y = 100; y <= height - SQUARE_SIZE; y += SQUARE_SIZE) {
       
@@ -240,6 +260,31 @@ void display(){
         square(x, y, 100);
       } */
     }
+  }
+ }
+  
+  if(Level == 3){
+    for(int x = 5; x <= 595; x += SQUARE_SIZE) {
+    for(int y = 100; y <= 595; y += SQUARE_SIZE) {
+      
+        fill(144,238,144);
+        stroke(0);
+        square(x, y, 100);
+    }
+   }
+   
+        fill(0);
+        stroke(0);
+        rect(595, 100, 5, 490);
+   
+        fill(0);
+        stroke(0);
+        rect(0, 590, 590, 10);
+        
+        fill(0);
+        stroke(0);
+        rect(590, 590, 10, 10);
+        
   }
   
    int SQUARESIZE = width/ROWS ;
