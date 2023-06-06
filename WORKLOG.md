@@ -75,6 +75,22 @@ Merged the changes from Modes branch into the main branch
 
 Cleared up unnecessary code from main branch
 
+### 6/5/23
+
+Finished setup for Level 1
+
+Implemented try again feature in level 1
+
+Fixed flagging display for Level 1
+
+Finished setup for Level 3
+
+Updated mouseClicked for Level 3
+
+Updated display of flag and other features for level 3
+
+Started working on fixing a display bug for Level 3 
+
 ## Junling Zhang
 
 ### 5/22/23
