@@ -11,11 +11,20 @@ int time = 0 ;
 boolean lose = false;
 boolean retry = false;
 boolean win = false ;
-int Level = 1;
+int Level = 3;
 float sec = 0;
 
 void setup(){
   size(600, 600);
+  
+    if(Level == 1){
+    SQUARE_SIZE = 100;
+    ROWS = 6;
+    COLS = 5;
+    MINES = 5;
+    board = new TILE[ROWS][COLS] ;
+    makeBoard() ;
+  }
   
   if(Level == 2){
     ROWS = 12;
@@ -25,11 +34,11 @@ void setup(){
     makeBoard() ;
   }
   
-  if(Level == 1){
-    SQUARE_SIZE = 100;
-    ROWS = 6;
-    COLS = 5;
-    MINES = 5;
+  if(Level == 3){
+    SQUARE_SIZE = 35;
+    ROWS = 17;
+    COLS = 14;
+    MINES = 60;
     board = new TILE[ROWS][COLS] ;
     makeBoard() ;
   }
