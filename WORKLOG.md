@@ -93,7 +93,7 @@ Updated mouseClicked for Level 3
 
 Updated display of flag and other features for level 3
 
-Started working on fixing a display bug for Level 3 
+Started working on fixing a display bug for Level 3
 
 ## Junling Zhang
 
@@ -155,3 +155,8 @@ edited ReadMe
 Worked on Modes branch
 
 fixed non-stop timer clock mini-bug
+
+### 6/6/23
+Worked on Modes branch
+
+Added a way to play another board after winning
