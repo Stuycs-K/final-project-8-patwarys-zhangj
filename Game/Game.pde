@@ -460,9 +460,64 @@ if(mouseButton == LEFT){
     }
   }
  }
- 
+}  
+  
+  if(Level == 3){
+    if(mouseY > 100){
+      board[mouseX/100][mouseY/100 - 1].setDiff(3); 
+    }
+    if(mouseY > 100 && mouseButton == RIGHT  && board[mouseX/35][mouseY/35 - 3].getFlagged() == false){
+    int col = mouseX/35;
+    int row = (mouseY - 100)/35;
+    if(lose == false){
+      if(board[col][row].getBomb() == false){ 
+        reveal(col, row);
+        if(checkFinished()){
+          win = true ;
+        }
+       }
+      else{
+      //board[col][row].reveal();
+        lose = true;
+      }
+     }
+       else{
+   int x = mouseX;
+   int y = mouseY;
+   if(x > width - 400 && x < width - 200 && y > 350 && y < 400){
+     retry = true; 
+     lose = false;
+     score = 0;
+     //click = 0;
+     //MINES = 25;
+   }
   }
-
+    }
+    
+    if(mouseButton == LEFT){
+  if(mouseY > 100 && board[mouseX/35][mouseY/35-3].getFlagged() == false){
+    if(FLAGS > 0){
+      color a = get(mouseX, mouseY);
+      color b = color(0,255,0);
+      color c = color(0,0,255);
+      color d = color(0);
+      color e = color(255);
+      color f = color(144,238,144);
+      if(a != b && a != c && a == f){
+      board[mouseX/35][mouseY/35 - 3].setFlag(true);
+      FLAGS--;
+      }
+    }
+  }
+  else{
+    if(mouseY > 100){
+    board[mouseX/35][mouseY/35 - 3].setFlag(false);
+    FLAGS++;
+    }
+  }
+ }
+}
+  
 }
 
 void calculateAdjacentMines(int x, int y){
