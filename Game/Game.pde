@@ -418,6 +418,17 @@ if(mouseButton == LEFT){
         lose = true;
       }
      }
+       else{
+   int x = mouseX;
+   int y = mouseY;
+   if(x > width - 400 && x < width - 200 && y > 350 && y < 400){
+     retry = true; 
+     lose = false;
+     score = 0;
+     //click = 0;
+     //MINES = 25;
+   }
+  }
     }
     
     if(mouseButton == LEFT){
