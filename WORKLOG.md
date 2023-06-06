@@ -75,6 +75,10 @@ Merged the changes from Modes branch into the main branch
 
 Cleared up unnecessary code from main branch
 
+### 6/2/23
+
+I got food poisoning and was unable to work on the project
+
 ### 6/5/23
 
 Finished setup for Level 1
