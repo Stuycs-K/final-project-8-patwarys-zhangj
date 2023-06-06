@@ -17,19 +17,19 @@ float sec = 0;
 void setup(){
   size(600, 600);
   
+    if(Level == 2){
+    ROWS = 12;
+    COLS = 10;
+    MINES = 25 ;
+    board = new TILE[ROWS][COLS] ;
+    makeBoard() ;
+  }
+  
     if(Level == 1){
     SQUARE_SIZE = 100;
     ROWS = 6;
     COLS = 5;
     MINES = 5;
-    board = new TILE[ROWS][COLS] ;
-    makeBoard() ;
-  }
-  
-  if(Level == 2){
-    ROWS = 12;
-    COLS = 10;
-    MINES = 25 ;
     board = new TILE[ROWS][COLS] ;
     makeBoard() ;
   }
@@ -135,7 +135,7 @@ void draw(){
     }
    } */
    
-   
+   if(Level == 3){
         fill(0);
         stroke(0);
         rect(595, 100, 5, 490);
@@ -151,6 +151,7 @@ void draw(){
         fill(0);
         stroke(0);
         rect(0, 100, 5, 500);
+   }
    
   
 }
@@ -241,7 +242,7 @@ void display(){
       textSize(25) ;
       text("Score : " + score, 450, 60) ;
       
-      if(Level == 1 || Level == 3){
+      if(Level == 1 || Level == 2){
       
   for(int x = 0; x <= width - SQUARE_SIZE; x += SQUARE_SIZE) {
     for(int y = 100; y <= height - SQUARE_SIZE; y += SQUARE_SIZE) {
