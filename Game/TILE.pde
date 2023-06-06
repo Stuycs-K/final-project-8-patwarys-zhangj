@@ -61,8 +61,8 @@ public void setNumBomb(int num){
 public void display(float x, float y, float size){
   /*fill(120) ;
   square(x, y, size) ;*/
-  if(revealed){
-    if(getBomb() == false){
+  if(revealed && diff != 3){
+        if(getBomb() == false){
       fill(0,255,0) ;
     square(x, y, size) ;
     fill(0,0,255) ;
@@ -88,6 +88,36 @@ public void display(float x, float y, float size){
     else{
         text(NumBomb + "", x, y+size);
       }
+    }   
+  }
+  
+  if(revealed && diff == 3){
+    if(getBomb() == false){
+      fill(0,255,0) ;
+    square(x+5, y, size) ;
+    fill(0,0,255) ;
+    textSize(size) ;
+    textAlign(LEFT) ;
+    if(NumBomb == 0){
+      text("", x+5, y+size) ;
+      fill(211,211,211) ;
+      square(x+5, y, size) ;
+    }
+    if(NumBomb == 2){
+     fill(255,0,0) ;
+     textSize(size) ;
+     textAlign(LEFT) ;
+     text(NumBomb + "", x+5, y+size) ;
+    }
+    if(NumBomb>2){
+     fill(128,0,128) ;
+     textSize(size) ;
+     textAlign(LEFT) ;
+     text(NumBomb + "", x+5, y+size) ;
+    } 
+    else{
+        text(NumBomb + "", x+5, y+size);
+      }
     } 
   }
   
@@ -103,6 +133,13 @@ public void display(float x, float y, float size){
     stroke(0);
     line(x+30,y+10,x+30,y+90);
     triangle(x+30, y+10, x+30, y+45, x+70, y+30);
+  }
+    
+    if(flagged == true && diff == 3){
+    fill(255,0,0);
+    stroke(0);
+    line(x+13,y+8,x+13,y+30);
+    triangle(x+13, y+8, x+13, y+18, x+28, y+13);
   }
   
 }

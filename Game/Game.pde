@@ -11,13 +11,13 @@ int time = 0 ;
 boolean lose = false;
 boolean retry = false;
 boolean win = false ;
-int Level = 1;
+int Level = 3;
 float sec = 0;
 
 void setup(){
   size(600, 600);
   
-  if(Level == 2){
+    if(Level == 2){
     ROWS = 12;
     COLS = 10;
     MINES = 25 ;
@@ -25,11 +25,20 @@ void setup(){
     makeBoard() ;
   }
   
-  if(Level == 1){
+    if(Level == 1){
     SQUARE_SIZE = 100;
     ROWS = 6;
     COLS = 5;
     MINES = 5;
+    board = new TILE[ROWS][COLS] ;
+    makeBoard() ;
+  }
+  
+  if(Level == 3){
+    SQUARE_SIZE = 35;
+    ROWS = 17;
+    COLS = 14;
+    MINES = 60;
     board = new TILE[ROWS][COLS] ;
     makeBoard() ;
   }
@@ -99,7 +108,11 @@ void draw(){
         
         fill(0);
         textSize(25) ;
+<<<<<<< HEAD
         text("MINES  CLEARED", width/3, height-225) ;
+=======
+        text("MINES  CLEARED", width/3 + 10, height-250) ;
+>>>>>>> refs/remotes/origin/Modes
         }
       }
       fill(144,238,144);
@@ -141,6 +154,25 @@ void draw(){
       }
     }
    } */
+   
+   if(Level == 3){
+        fill(0);
+        stroke(0);
+        rect(595, 100, 5, 490);
+   
+        fill(0);
+        stroke(0);
+        rect(0, 590, 590, 10);
+        
+        fill(0);
+        stroke(0);
+        rect(590, 590, 10, 10);
+        
+        fill(0);
+        stroke(0);
+        rect(0, 100, 5, 500);
+   }
+   
   
 }
 
@@ -230,6 +262,8 @@ void display(){
       textSize(25) ;
       text("Score : " + score, 450, 60) ;
       
+      if(Level == 1 || Level == 2){
+      
   for(int x = 0; x <= width - SQUARE_SIZE; x += SQUARE_SIZE) {
     for(int y = 100; y <= height - SQUARE_SIZE; y += SQUARE_SIZE) {
       
@@ -247,6 +281,31 @@ void display(){
         square(x, y, 100);
       } */
     }
+  }
+ }
+  
+  if(Level == 3){
+    for(int x = 5; x <= 595; x += SQUARE_SIZE) {
+    for(int y = 100; y <= 595; y += SQUARE_SIZE) {
+      
+        fill(144,238,144);
+        stroke(0);
+        square(x, y, 100);
+    }
+   }
+   
+        fill(0);
+        stroke(0);
+        rect(595, 100, 5, 490);
+   
+        fill(0);
+        stroke(0);
+        rect(0, 590, 590, 10);
+        
+        fill(0);
+        stroke(0);
+        rect(590, 590, 10, 10);
+        
   }
   
    int SQUARESIZE = width/ROWS ;
@@ -436,6 +495,17 @@ void mouseClicked() {
         lose = true;
       }
      }
+       else{
+   int x = mouseX;
+   int y = mouseY;
+   if(x > width - 400 && x < width - 200 && y > 350 && y < 400){
+     retry = true; 
+     lose = false;
+     score = 0;
+     //click = 0;
+     //MINES = 25;
+   }
+  }
     }
     
     if(mouseButton == LEFT){
@@ -460,9 +530,64 @@ void mouseClicked() {
     }
   }
  }
- 
+}  
+  
+  if(Level == 3){
+    if(mouseY > 100){
+      board[mouseX/35][mouseY/35 - 3].setDiff(3); 
+    }
+    if(mouseY > 100 && mouseButton == RIGHT  && board[mouseX/35][mouseY/35 - 3].getFlagged() == false){
+    int col = mouseX/35;
+    int row = (mouseY - 100)/35;
+    if(lose == false){
+      if(board[col][row].getBomb() == false){ 
+        reveal(col, row);
+        if(checkFinished()){
+          win = true ;
+        }
+       }
+      else{
+      //board[col][row].reveal();
+        lose = true;
+      }
+     }
+       else{
+   int x = mouseX;
+   int y = mouseY;
+   if(x > width - 400 && x < width - 200 && y > 350 && y < 400){
+     retry = true; 
+     lose = false;
+     score = 0;
+     //click = 0;
+     //MINES = 25;
+   }
   }
-
+    }
+    
+    if(mouseButton == LEFT){
+  if(mouseY > 100 && board[mouseX/35][mouseY/35-3].getFlagged() == false){
+    if(FLAGS > 0){
+      color a = get(mouseX, mouseY);
+      color b = color(0,255,0);
+      color c = color(0,0,255);
+      color d = color(0);
+      color e = color(255);
+      color f = color(144,238,144);
+      if(a != b && a != c && a == f){
+      board[mouseX/35][mouseY/35 - 3].setFlag(true);
+      FLAGS--;
+      }
+    }
+  }
+  else{
+    if(mouseY > 100){
+    board[mouseX/35][mouseY/35 - 3].setFlag(false);
+    FLAGS++;
+    }
+  }
+ }
+}
+  
 }
 
 void calculateAdjacentMines(int x, int y){
