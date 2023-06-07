@@ -61,7 +61,7 @@ public void setNumBomb(int num){
 public void display(float x, float y, float size){
   /*fill(120) ;
   square(x, y, size) ;*/
-  if(revealed && diff != 3){
+  if(revealed){
         if(getBomb() == false){
       fill(0,255,0) ;
     square(x, y, size) ;
@@ -91,7 +91,7 @@ public void display(float x, float y, float size){
     }   
   }
   
-  if(revealed && diff == 3){
+  /* if(revealed && diff == 3){
     if(getBomb() == false){
       fill(0,255,0) ;
     square(x+5, y, size) ;
@@ -119,7 +119,7 @@ public void display(float x, float y, float size){
         text(NumBomb + "", x+5, y+size);
       }
     } 
-  }
+  } */
   
     if(flagged == true && diff == 2){
     fill(255,0,0);

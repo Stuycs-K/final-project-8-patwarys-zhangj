@@ -35,10 +35,10 @@ void setup(){
   }
   
   if(Level == 3){
-    SQUARE_SIZE = 35;
-    ROWS = 17;
-    COLS = 14;
-    MINES = 60;
+    SQUARE_SIZE = 25;
+    ROWS = 24;
+    COLS = 20;
+    MINES = 99;
     board = new TILE[ROWS][COLS] ;
     makeBoard() ;
   }
@@ -151,7 +151,7 @@ void draw(){
     }
    } */
    
-   if(Level == 3){
+   /* if(Level == 3){
         fill(0);
         stroke(0);
         rect(595, 100, 5, 490);
@@ -167,7 +167,7 @@ void draw(){
         fill(0);
         stroke(0);
         rect(0, 100, 5, 500);
-   }
+   } */
    
   
 }
@@ -258,7 +258,7 @@ void display(){
       textSize(25) ;
       text("Score : " + score, 450, 60) ;
       
-      if(Level == 1 || Level == 2){
+      if(Level == 1 || Level == 2 || Level == 3){
       
   for(int x = 0; x <= width - SQUARE_SIZE; x += SQUARE_SIZE) {
     for(int y = 100; y <= height - SQUARE_SIZE; y += SQUARE_SIZE) {
@@ -280,7 +280,7 @@ void display(){
   }
  }
   
-  if(Level == 3){
+  /* if(Level == 3){
     for(int x = 5; x <= 595; x += SQUARE_SIZE) {
     for(int y = 100; y <= 595; y += SQUARE_SIZE) {
       
@@ -302,7 +302,7 @@ void display(){
         stroke(0);
         rect(590, 590, 10, 10);
         
-  }
+  } */
   
    int SQUARESIZE = width/ROWS ;
   for(int i = 0 ; i < ROWS; i++){
@@ -530,11 +530,11 @@ void mouseClicked() {
   
   if(Level == 3){
     if(mouseY > 100){
-      board[mouseX/35][mouseY/35 - 3].setDiff(3); 
+      board[mouseX/25][mouseY/25 - 4].setDiff(3); 
     }
-    if(mouseY > 100 && mouseButton == RIGHT  && board[mouseX/35][mouseY/35 - 3].getFlagged() == false){
-    int col = mouseX/35;
-    int row = (mouseY - 100)/35;
+    if(mouseY > 100 && mouseButton == RIGHT  && board[mouseX/25][mouseY/25 - 4].getFlagged() == false){
+    int col = mouseX/25;
+    int row = (mouseY - 100)/25;
     if(lose == false){
       if(board[col][row].getBomb() == false){ 
         reveal(col, row);
@@ -561,7 +561,7 @@ void mouseClicked() {
     }
     
     if(mouseButton == LEFT){
-  if(mouseY > 100 && board[mouseX/35][mouseY/35-3].getFlagged() == false){
+  if(mouseY > 100 && board[mouseX/25][mouseY/25-4].getFlagged() == false){
     if(FLAGS > 0){
       color a = get(mouseX, mouseY);
       color b = color(0,255,0);
@@ -570,14 +570,14 @@ void mouseClicked() {
       color e = color(255);
       color f = color(144,238,144);
       if(a != b && a != c && a == f){
-      board[mouseX/35][mouseY/35 - 3].setFlag(true);
+      board[mouseX/25][mouseY/25 - 4].setFlag(true);
       FLAGS--;
       }
     }
   }
   else{
     if(mouseY > 100){
-    board[mouseX/35][mouseY/35 - 3].setFlag(false);
+    board[mouseX/25][mouseY/25 - 4].setFlag(false);
     FLAGS++;
     }
   }
