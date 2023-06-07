@@ -279,7 +279,7 @@ void display(){
 
 void mouseClicked() {
   
- if(mouseX > 20 && mouseX < 100 && mouseY > 40 && mouseY < 60 && mouseButton == LEFT && choose == false){
+ if(mouseX > 20 && mouseX < 100 && mouseY > 40 && mouseY < 60 && mouseButton == LEFT && choose == false && win == false){
   choose = true;
 }
 
