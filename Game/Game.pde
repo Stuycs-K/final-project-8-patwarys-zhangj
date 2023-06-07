@@ -14,11 +14,13 @@ boolean win = false ;
 int Level = 1;
 float sec = 0;
 boolean choose = false;
+int lvl = 0;
 
 void setup(){
   size(600, 600);
   
-    if(Level == 2){
+  if(Level == 2){
+    SQUARE_SIZE = 50;
     ROWS = 12;
     COLS = 10;
     MINES = 25 ;
@@ -26,14 +28,14 @@ void setup(){
     makeBoard() ;
   }
   
-    if(Level == 1){
+   if(Level == 1){
     SQUARE_SIZE = 100;
     ROWS = 6;
     COLS = 5;
     MINES = 5;
     board = new TILE[ROWS][COLS] ;
     makeBoard() ;
-  }
+  } 
   
   if(Level == 3){
     SQUARE_SIZE = 25;
@@ -47,6 +49,34 @@ void setup(){
 }
 
 void draw(){
+ 
+   if(Level == 2 && choose == true){
+     SQUARE_SIZE = 50;
+    ROWS = 12;
+    COLS = 10;
+    MINES = 25 ;
+    board = new TILE[ROWS][COLS] ;
+    makeBoard() ;
+  }
+  
+   if(Level == 1 && choose == true){
+    SQUARE_SIZE = 100;
+    ROWS = 6;
+    COLS = 5;
+    MINES = 5;
+    board = new TILE[ROWS][COLS] ;
+    makeBoard() ;
+  } 
+  
+  if(Level == 3 && choose == true){
+    SQUARE_SIZE = 25;
+    ROWS = 24;
+    COLS = 20;
+    MINES = 99;
+    board = new TILE[ROWS][COLS] ;
+    makeBoard() ;
+  }
+  
   display();
   fill(0) ;
   textSize(25) ;
@@ -244,6 +274,26 @@ void display(){
 
 
 void mouseClicked() {
+  
+ if(mouseX > 20 && mouseX < 100 && mouseY > 40 && mouseY < 60 && mouseButton == LEFT){
+  choose = true;
+}
+
+  if(mouseX > 20 && mouseX < 110 && mouseY > 31 && mouseY < 51  && choose == true && mouseButton == RIGHT){
+    Level = 1;
+    choose = false;
+  }
+  
+  if(mouseX > 20 && mouseX < 110 && mouseY > 51 && mouseY < 71  && choose == true && mouseButton == RIGHT){
+    Level = 2;
+    choose = false;
+  }
+  
+  if(mouseX > 20 && mouseX < 110 && mouseY > 71 && mouseY < 91  && choose == true && mouseButton == RIGHT){
+    Level = 3;
+    choose = false;
+  } 
+  
   if(mouseX > width-400 && mouseY > height - 250 && mouseX <= width - 200 && mouseY <= height - 200 && win){
     score = 0;
     click = 0 ;
@@ -474,13 +524,8 @@ void mouseClicked() {
   }
  }
 }
-
-//to choose levels
-if(mouseX > 10 && mouseX < 100 && mouseY > 30 && mouseY < 70){
-  choose = true;
-}
   
-}
+} 
 
 void calculateAdjacentMines(int x, int y){
         if(x != 0){
