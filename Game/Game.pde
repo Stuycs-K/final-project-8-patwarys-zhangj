@@ -11,7 +11,7 @@ int time = 0 ;
 boolean lose = false;
 boolean retry = false;
 boolean win = false ;
-int Level = 3;
+int Level = 2;
 float sec = 0;
 
 void setup(){
@@ -329,6 +329,7 @@ void mouseClicked() {
       
      if(board[mouseX/50][mouseY/50 - 2].getBomb() == true){
         board[mouseX/50][mouseY/50 - 2].setBomb(false);
+        FLAGS--;
       }
       
      click++;
