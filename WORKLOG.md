@@ -95,6 +95,22 @@ Updated display of flag and other features for level 3
 
 Started working on fixing a display bug for Level 3
 
+### 6/6/23
+
+Changed the setup for Level 3
+
+Updated mouseclicked and flagging for Level 3
+
+Fixed flag count if firstClick is a bomb for Level 2
+
+Cleared up excess code from Modes branch
+
+Updated display for "try again" and "play again"
+
+Created a dropdown menu bar for choosing a mode
+
+Updated display for dropdown menu bar when a mode is chosen by the player
+
 ## Junling Zhang
 
 ### 5/22/23
