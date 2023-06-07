@@ -27,7 +27,7 @@ void setup(){
     MINES = 25 ;
     board = new TILE[ROWS][COLS] ;
     makeBoard() ;
-  }
+  } 
   
    if(Level == 1){
     SQUARE_SIZE = 100;
@@ -279,25 +279,49 @@ void display(){
 
 void mouseClicked() {
   
- if(mouseX > 20 && mouseX < 100 && mouseY > 40 && mouseY < 60 && mouseButton == LEFT){
+ if(mouseX > 20 && mouseX < 100 && mouseY > 40 && mouseY < 60 && mouseButton == LEFT && choose == false){
   choose = true;
 }
 
   if(mouseX > 20 && mouseX < 110 && mouseY > 31 && mouseY < 51  && choose == true && mouseButton == RIGHT){
     Level = 1;
     m = "Easy";
+    SQUARE_SIZE = 100;
+    ROWS = 6;
+    COLS = 5;
+    MINES = 5;
+    board = new TILE[ROWS][COLS] ;
+    makeBoard() ;
+    score = 0;
+    time = 0;
     choose = false;
   }
   
   if(mouseX > 20 && mouseX < 110 && mouseY > 51 && mouseY < 71  && choose == true && mouseButton == RIGHT){
     Level = 2;
     m = "Medium";
+    SQUARE_SIZE = 50;
+    ROWS = 12;
+    COLS = 10;
+    MINES = 25 ;
+    board = new TILE[ROWS][COLS] ;
+    makeBoard() ;
+    score = 0;
+    time = 0;
     choose = false;
   }
   
   if(mouseX > 20 && mouseX < 110 && mouseY > 71 && mouseY < 91  && choose == true && mouseButton == RIGHT){
     Level = 3;
     m = "Hard";
+    SQUARE_SIZE = 25;
+    ROWS = 24;
+    COLS = 20;
+    MINES = 99;
+    board = new TILE[ROWS][COLS] ;
+    makeBoard() ;
+    score = 0;
+    time = 0;
     choose = false;
   } 
   
