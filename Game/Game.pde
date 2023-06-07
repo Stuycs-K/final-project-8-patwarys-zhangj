@@ -15,6 +15,7 @@ int Level = 1;
 float sec = 0;
 boolean choose = false;
 int lvl = 0;
+String m = "Mode";
 
 void setup(){
   size(600, 600);
@@ -234,7 +235,10 @@ void display(){
         
       fill(0);
       textSize(25) ;
-      text("Mode", 20, 60) ;
+      if(m.compareTo("Medium") == 0){
+        textSize(20) ;
+      }
+      text(m, 20, 60) ;
       
       fill(0);
       triangle(87, 48, 97, 48, 92, 53);
@@ -281,16 +285,19 @@ void mouseClicked() {
 
   if(mouseX > 20 && mouseX < 110 && mouseY > 31 && mouseY < 51  && choose == true && mouseButton == RIGHT){
     Level = 1;
+    m = "Easy";
     choose = false;
   }
   
   if(mouseX > 20 && mouseX < 110 && mouseY > 51 && mouseY < 71  && choose == true && mouseButton == RIGHT){
     Level = 2;
+    m = "Medium";
     choose = false;
   }
   
   if(mouseX > 20 && mouseX < 110 && mouseY > 71 && mouseY < 91  && choose == true && mouseButton == RIGHT){
     Level = 3;
+    m = "Hard";
     choose = false;
   } 
   
