@@ -176,3 +176,10 @@ fixed non-stop timer clock mini-bug
 Worked on Modes branch
 
 Added a way to play another board after winning
+
+### 6/7/23
+created Optimizing branch
+
+worked on Optimizing branch
+
+worked on the prototype
