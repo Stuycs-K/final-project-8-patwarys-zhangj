@@ -138,8 +138,8 @@ public void display(float x, float y, float size){
     if(flagged == true && diff == 3){
     fill(255,0,0);
     stroke(0);
-    line(x+13,y+8,x+13,y+30);
-    triangle(x+13, y+8, x+13, y+18, x+28, y+13);
+    line(x+10,y+6,x+10,y+22);
+    triangle(x+10, y+6, x+10, y+14, x+20, y+10);
   }
   
 }
