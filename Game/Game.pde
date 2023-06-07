@@ -11,7 +11,7 @@ int time = 0 ;
 boolean lose = false;
 boolean retry = false;
 boolean win = false ;
-int Level = 1;
+int Level = 3;
 float sec = 0;
 
 void setup(){
@@ -63,24 +63,24 @@ void draw(){
       
         fill(0);
         textSize(25) ;
-        text("GAME   OVER", width-365, height-300) ;
+        text("GAME   OVER", width-365, height-270) ;
         
         fill(144,238,144);
         stroke(0);
-        rect(width-400, height - 250, 200, 50);
+        rect(width-390, height - 260, 180, 50);
         
         fill(0);
         textSize(25) ;
-        text("TRY   AGAIN", width-340, height-215) ;
+        text("TRY   AGAIN", width-340, height-225) ;
         
         ellipseMode(CORNER) ;
         fill(255);
         stroke(0);
-        circle(width-383, height - 235, 25);
+        circle(width-383, height - 245, 25);
         
         fill(0);
         stroke(0);
-        triangle(width-355,height-215,width-358,height-227,width-368,height-218);
+        triangle(width-355,height-225,width-358,height-237,width-368,height-228);
         }
       }
   }else if(win == true){
@@ -92,25 +92,25 @@ void draw(){
         
         fill(0);
         textSize(25) ;
-        text("MINES  CLEARED", width/3 + 10, height-250) ;
+        text("MINES  CLEARED", width/3 + 15, height-270) ;
         }
       }
       fill(144,238,144);
       stroke(0);
-      rect(width-400, height - 250, 200, 50);
+      rect(width-390, height - 260, 180, 50);
         
       fill(0);
       textSize(25) ;
-      text("PLAY   AGAIN", width-340, height-215) ;
+      text("PLAY   AGAIN", width-350, height-225) ;
         
       ellipseMode(CORNER) ;
       fill(255);
       stroke(0);
-      circle(width-383, height - 235, 25);
+      circle(width-383, height - 245, 25);
         
         fill(0);
         stroke(0);
-        triangle(width-355,height-215,width-358,height-227,width-368,height-218);
+        triangle(width-355,height-225,width-358,height-237,width-368,height-228);
   }else{ 
      sec = map(time, 0, 60, 0, 6.28) - 1.57;
   }
