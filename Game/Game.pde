@@ -11,8 +11,9 @@ int time = 0 ;
 boolean lose = false;
 boolean retry = false;
 boolean win = false ;
-int Level = 3;
+int Level = 1;
 float sec = 0;
+boolean choose = false;
 
 void setup(){
   size(600, 600);
@@ -126,6 +127,33 @@ void draw(){
    line(width/2+45+10, height/2 - 250, width/2+45+19, height/2-250);
    line(width/2+45, height/2 - 240, width/2+45, height/2-230);
    line(width/2+45, height/2 - 270, width/2+45, height/2-260);
+   
+   if(choose == true){
+     fill(255);
+     textSize(25) ;
+     text("Mode", 25, 28) ;
+     
+    fill(0);
+    triangle(90, 18, 100, 18, 95, 24);
+     
+     fill(255);
+     rect(20,31,90,20);
+     fill(0);
+     textSize(20) ;
+     text("Easy", 45, 46) ;
+     
+     fill(255);
+     rect(20,51,90,20);
+     fill(0);
+     textSize(20) ;
+     text("Medium", 32, 66) ;
+     
+     fill(255);
+     rect(20,71,90,20);
+     fill(0);
+     textSize(20) ;
+     text("Hard", 45, 86) ;
+   }
   
 }
 
@@ -171,10 +199,15 @@ void display(){
       stroke(0);
       rect(0.0,0.0,600.0,100.0);
       
+      fill(255);
+      rect(20,35,90,30);  
         
       fill(0);
       textSize(25) ;
-      text("Level: " + Level, 20, 60) ;
+      text("Mode", 20, 60) ;
+      
+      fill(0);
+      triangle(87, 48, 97, 48, 92, 53);
       
       fill(255,0,0);
       stroke(0);
@@ -440,6 +473,11 @@ void mouseClicked() {
     }
   }
  }
+}
+
+//to choose levels
+if(mouseX > 10 && mouseX < 100 && mouseY > 30 && mouseY < 70){
+  choose = true;
 }
   
 }
