@@ -526,6 +526,21 @@ void mouseClicked() {
     if(mouseY > 100){
       board[mouseX/25][mouseY/25 - 4].setDiff(3); 
     }
+    
+    if(mouseY > 100 && mouseButton == RIGHT  && board[mouseX/25][mouseY/25 - 4].getFlagged() == false){
+      
+    if (click == 0){
+      
+     if(board[mouseX/25][mouseY/25 - 4].getBomb() == true){
+        board[mouseX/25][mouseY/25 - 4].setBomb(false);
+        FLAGS--;
+        
+      }
+      
+     click++;
+    }
+   }
+    
     if(mouseY > 100 && mouseButton == RIGHT  && board[mouseX/25][mouseY/25 - 4].getFlagged() == false){
     int col = mouseX/25;
     int row = (mouseY - 100)/25;
