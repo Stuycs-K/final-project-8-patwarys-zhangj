@@ -111,6 +111,16 @@ Created a dropdown menu bar for choosing a mode
 
 Updated display for dropdown menu bar when a mode is chosen by the player
 
+### 6/7/23
+
+Fixed display for Modes so that the board and other features change right when a player selects a mode
+
+Updated Modes so that timer and score resets when a mode is changed/chosen in the middle of a game
+
+Updated when a mode can be chosen
+
+Implemented firstClick in Level 1 and Level 3
+
 ## Junling Zhang
 
 ### 5/22/23
