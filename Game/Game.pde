@@ -294,6 +294,7 @@ void mouseClicked() {
     makeBoard() ;
     score = 0;
     time = 0;
+    click = 0;
     choose = false;
   }
   
@@ -308,6 +309,7 @@ void mouseClicked() {
     makeBoard() ;
     score = 0;
     time = 0;
+    click = 0;
     choose = false;
   }
   
@@ -322,6 +324,7 @@ void mouseClicked() {
     makeBoard() ;
     score = 0;
     time = 0;
+    click = 0;
     choose = false;
   } 
   
@@ -451,9 +454,25 @@ void mouseClicked() {
   }
  }
 }else if(Level == 1){
+  
     if(mouseY > 100){
       board[mouseX/100][mouseY/100 - 1].setDiff(1); 
     }
+    
+    if(mouseY > 100 && mouseButton == RIGHT  && board[mouseX/100][mouseY/100 - 1].getFlagged() == false){
+      
+    if (click == 0){
+      
+     if(board[mouseX/100][mouseY/100 - 1].getBomb() == true){
+        board[mouseX/100][mouseY/100 - 1].setBomb(false);
+        FLAGS--;
+        
+      }
+      
+     click++;
+    }
+   }
+    
     if(mouseY > 100 && mouseButton == RIGHT  && board[mouseX/100][mouseY/100 - 1].getFlagged() == false){
     int col = mouseX/100;
     int row = (mouseY - 100)/100;
