@@ -12,7 +12,7 @@ Added setup, draw, makeBoard, and instance variables
 
 Continued working on the Game Class
 
-Worked on displaying the board 
+Worked on displaying the board
 
 Started on working on basics of how clicking affects the board
 
@@ -22,7 +22,7 @@ Continued working on mouseClicked -- firstClick, which reveals a random number o
 
 Fixed grid to make it work with display and fixed mouseClicked
 
-Made additional changes to firstClick 
+Made additional changes to firstClick
 
 ### 5/25/23
 
@@ -62,6 +62,64 @@ Merged Retry into the main branch
 Fixed errors within main
 
 Updated the visuals of the game
+
+### 6/1/23
+
+Fixed issues with display and firstClick
+
+Added a display for the timer
+
+Started working on making different levels
+
+Merged the changes from Modes branch into the main branch
+
+Cleared up unnecessary code from main branch
+
+### 6/2/23
+
+I got food poisoning and was unable to work on the project
+
+### 6/5/23
+
+Finished setup for Level 1
+
+Implemented try again feature in level 1
+
+Fixed flagging display for Level 1
+
+Finished setup for Level 3
+
+Updated mouseClicked for Level 3
+
+Updated display of flag and other features for level 3
+
+Started working on fixing a display bug for Level 3
+
+### 6/6/23
+
+Changed the setup for Level 3
+
+Updated mouseclicked and flagging for Level 3
+
+Fixed flag count if firstClick is a bomb for Level 2
+
+Cleared up excess code from Modes branch
+
+Updated display for "try again" and "play again"
+
+Created a dropdown menu bar for choosing a mode
+
+Updated display for dropdown menu bar when a mode is chosen by the player
+
+### 6/7/23
+
+Fixed display for Modes so that the board and other features change right when a player selects a mode
+
+Updated Modes so that timer and score resets when a mode is changed/chosen in the middle of a game
+
+Updated when a mode can be chosen
+
+Implemented firstClick in Level 1 and Level 3
 
 ## Junling Zhang
 
@@ -103,11 +161,11 @@ fixed impossible NumBomb value bug/error
 ### 5/30/23
 created timer branch
 
-Added timer 
+Added timer
 
 merged timer branch into the main branch
 
-added and implemented checkFinsihed()
+added and implemented checkFinished()
 
 edited Prototype
 
@@ -115,3 +173,23 @@ edited Prototype
 added keyPressed()
 
 added three cheat keys to show mines and tile that the program thinks are revealed and a two mine board
+
+### 6/2/23
+edited ReadMe
+
+### 6/5/23
+Worked on Modes branch
+
+fixed non-stop timer clock mini-bug
+
+### 6/6/23
+Worked on Modes branch
+
+Added a way to play another board after winning
+
+### 6/7/23
+created Optimizing branch
+
+worked on Optimizing branch
+
+worked on the prototype

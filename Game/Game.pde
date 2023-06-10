@@ -146,6 +146,8 @@ void draw(){
   }else{ 
      sec = map(time, 0, 60, 0, 6.28) - 1.57;
   }
+
+  
    ellipseMode(CENTER);
    stroke(0);
    fill(255);
@@ -278,7 +280,6 @@ void display(){
 
 
 void mouseClicked() {
-  
  if(mouseX > 20 && mouseX < 100 && mouseY > 40 && mouseY < 60 && mouseButton == LEFT){
   choose = true;
 }
@@ -380,7 +381,6 @@ void mouseClicked() {
        reveal((mouseX-100)/50,(mouseY-200)/50 - 2);
      }  
     } 
-    
   int col = mouseX/50;
   int row = (mouseY - 100)/50;
   if(lose == false){

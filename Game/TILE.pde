@@ -21,9 +21,7 @@ public void setDiff(int x){
 }
 
 public void reveals(){
-  //if(flagged == false){
     revealed = true ;
-  //}
 }
 
 public boolean getFlagged(){
