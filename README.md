@@ -14,6 +14,10 @@ surrounding tiles. The players can also flag
 tiles that they think contains mines.
 
 ## Instructions
-Left Click To Flag A Tile
+Left Click A Square To Flag A Tile
 
-Right Click To Reveal A Tile
+Right Click A Square To Reveal A Tile
+
+Left Click The Difficulty To Open A Dropdown Menu Of Difficulties
+
+Left Click A Difficulty In The Dropdown Menu To Change Diificulty
