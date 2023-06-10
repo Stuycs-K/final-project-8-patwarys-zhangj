@@ -193,3 +193,8 @@ created Optimizing branch
 worked on Optimizing branch
 
 worked on the prototype
+
+### 6/10/23
+Merged Optimizing Branch
+
+Updated ReadMe.md
