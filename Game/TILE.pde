@@ -1,6 +1,7 @@
 public class TILE{
 boolean Bomb, flagged, revealed ;
 int NumBomb;
+int diff = 2;
 
 public TILE(boolean bomb){
   Bomb = bomb ;
@@ -13,6 +14,10 @@ public void flag(){
   if(!revealed){
     flagged = !flagged ;
   }
+}
+
+public void setDiff(int x){
+ diff = x; 
 }
 
 public void reveals(){
@@ -52,11 +57,9 @@ public void setNumBomb(int num){
 }
 
 public void display(float x, float y, float size){
-  /*fill(120) ;
-  square(x, y, size) ;*/
   if(revealed){
-    if(getBomb() == false){
-      fill(0,255,0) ;
+   if(getBomb() == false){
+    fill(0,255,0) ;
     square(x, y, size) ;
     fill(0,0,255) ;
     textSize(size) ;
@@ -68,27 +71,37 @@ public void display(float x, float y, float size){
     }
     if(NumBomb == 2){
      fill(255,0,0) ;
-     textSize(size) ;
-     textAlign(LEFT) ;
      text(NumBomb + "", x, y+size) ;
     }
     if(NumBomb>2){
      fill(128,0,128) ;
-     textSize(size) ;
-     textAlign(LEFT) ;
      text(NumBomb + "", x, y+size) ;
     } 
     else{
         text(NumBomb + "", x, y+size);
       }
-    } 
+    }   
   }
   
-    if(flagged == true){
+    if(flagged == true && diff == 2){
     fill(255,0,0);
     stroke(0);
     line(x+20,y+10,x+20,y+40);
     triangle(x+20, y+10, x+20, y+25, x+40, y+20);
+  }
+  
+  if(flagged == true && diff == 1){
+    fill(255,0,0);
+    stroke(0);
+    line(x+30,y+10,x+30,y+90);
+    triangle(x+30, y+10, x+30, y+45, x+70, y+30);
+  }
+    
+    if(flagged == true && diff == 3){
+    fill(255,0,0);
+    stroke(0);
+    line(x+10,y+6,x+10,y+22);
+    triangle(x+10, y+6, x+10, y+14, x+20, y+10);
   }
   
 }

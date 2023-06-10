@@ -1,4 +1,4 @@
-TILE[][] board = new TILE[10][10];
+TILE[][] board;;
 int SQUARE_SIZE = 50;
 int Mode;
 int ROWS;
@@ -11,17 +11,72 @@ int time = 0 ;
 boolean lose = false;
 boolean retry = false;
 boolean win = false ;
+int Level = 1;
+float sec = 0;
+boolean choose = false;
+int lvl = 0;
+String m = "Mode";
 
 void setup(){
   size(600, 600);
-  ROWS = 12;
-  COLS = 10;
-  MINES = 25 ;
-  board = new TILE[ROWS][COLS] ;
-  makeBoard() ;
+  
+  if(Level == 2){
+    SQUARE_SIZE = 50;
+    ROWS = 12;
+    COLS = 10;
+    MINES = 25 ;
+    board = new TILE[ROWS][COLS] ;
+    makeBoard() ;
+  }
+  
+   if(Level == 1){
+    SQUARE_SIZE = 100;
+    ROWS = 6;
+    COLS = 5;
+    MINES = 5;
+    board = new TILE[ROWS][COLS] ;
+    makeBoard() ;
+  } 
+  
+  if(Level == 3){
+    SQUARE_SIZE = 25;
+    ROWS = 24;
+    COLS = 20;
+    MINES = 99;
+    board = new TILE[ROWS][COLS] ;
+    makeBoard() ;
+  }
+  
 }
 
 void draw(){
+ 
+   if(Level == 2 && choose == true){
+     SQUARE_SIZE = 50;
+    ROWS = 12;
+    COLS = 10;
+    MINES = 25 ;
+    board = new TILE[ROWS][COLS] ;
+    makeBoard() ;
+  }
+  
+   if(Level == 1 && choose == true){
+    SQUARE_SIZE = 100;
+    ROWS = 6;
+    COLS = 5;
+    MINES = 5;
+    board = new TILE[ROWS][COLS] ;
+    makeBoard() ;
+  } 
+  
+  if(Level == 3 && choose == true){
+    SQUARE_SIZE = 25;
+    ROWS = 24;
+    COLS = 20;
+    MINES = 99;
+    board = new TILE[ROWS][COLS] ;
+    makeBoard() ;
+  }
   
   display();
   fill(0) ;
@@ -40,36 +95,24 @@ void draw(){
       
         fill(0);
         textSize(25) ;
-        text("GAME   OVER", width-365, height-300) ;
+        text("GAME   OVER", width-365, height-270) ;
         
         fill(144,238,144);
         stroke(0);
-        square(width-350, height - 250, 50);
-                
-        fill(144,238,144);
-        stroke(0);
-        square(width-300, height - 250, 50);
-        
-        fill(144,238,144);
-        stroke(0);
-        square(width-250, height - 250, 50);
-        
-        fill(144,238,144);
-        stroke(0);
-        square(width-400, height - 250, 50);
+        rect(width-390, height - 260, 180, 50);
         
         fill(0);
         textSize(25) ;
-        text("TRY   AGAIN", width-340, height-215) ;
+        text("TRY   AGAIN", width-340, height-225) ;
         
         ellipseMode(CORNER) ;
         fill(255);
         stroke(0);
-        circle(width-383, height - 235, 25);
+        circle(width-383, height - 245, 25);
         
         fill(0);
         stroke(0);
-        triangle(width-355,height-215,width-358,height-227,width-368,height-218);
+        triangle(width-355,height-225,width-358,height-237,width-368,height-228);
         }
       }
   }else if(win == true){
@@ -81,18 +124,35 @@ void draw(){
         
         fill(0);
         textSize(25) ;
-        text("MINES  CLEARED", width/3, height-250) ;
+        text("MINES  CLEARED", width/3 + 15, height-270) ;
         }
       }
+      fill(144,238,144);
+      stroke(0);
+      rect(width-390, height - 260, 180, 50);
+        
+      fill(0);
+      textSize(25) ;
+      text("PLAY   AGAIN", width-350, height-225) ;
+        
+      ellipseMode(CORNER) ;
+      fill(255);
+      stroke(0);
+      circle(width-383, height - 245, 25);
+        
+        fill(0);
+        stroke(0);
+        triangle(width-355,height-225,width-358,height-237,width-368,height-228);
+  }else{ 
+     sec = map(time, 0, 60, 0, 6.28) - 1.57;
   }
+
   
    ellipseMode(CENTER);
    stroke(0);
    fill(255);
    ellipse(width/2+45, height/2 - 250, 40, 40);
-    
-   float sec = map(second(), 0, 60, 0, 6.28) - 1.57;
-
+  
    stroke(0);
    line(width/2+45, height/2 - 250, width/2+45 + cos(sec) * 20 * .95, height/2 - 250 + sin(sec) * 20 * .95);
    
@@ -100,14 +160,40 @@ void draw(){
    line(width/2+45+10, height/2 - 250, width/2+45+19, height/2-250);
    line(width/2+45, height/2 - 240, width/2+45, height/2-230);
    line(width/2+45, height/2 - 270, width/2+45, height/2-260);
+   
+   if(choose == true){
+     fill(255);
+     textSize(25) ;
+     text("Mode", 25, 28) ;
+     
+    fill(0);
+    triangle(90, 18, 100, 18, 95, 24);
+     
+     fill(255);
+     rect(20,31,90,20);
+     fill(0);
+     textSize(20) ;
+     text("Easy", 45, 46) ;
+     
+     fill(255);
+     rect(20,51,90,20);
+     fill(0);
+     textSize(20) ;
+     text("Medium", 32, 66) ;
+     
+     fill(255);
+     rect(20,71,90,20);
+     fill(0);
+     textSize(20) ;
+     text("Hard", 45, 86) ;
+   }
   
 }
 
 public void makeBoard(){
   int mines = MINES ;
-  
+  FLAGS = 0 ;
  if(Mode == 0){
-
   while(mines > 0){
     for(int i = 0; i<ROWS; i++){
       for(int j = 0; j<COLS; j++){
@@ -142,15 +228,22 @@ public void makeBoard(){
 
 
 void display(){
-
       fill(34,139,34);
       stroke(0);
       rect(0.0,0.0,600.0,100.0);
       
+      fill(255);
+      rect(20,35,90,30);  
         
       fill(0);
       textSize(25) ;
-      text("Mode: Easy", 20, 60) ;
+      if(m.compareTo("Medium") == 0){
+        textSize(20) ;
+      }
+      text(m, 20, 60) ;
+      
+      fill(0);
+      triangle(87, 48, 97, 48, 92, 53);
       
       fill(255,0,0);
       stroke(0);
@@ -165,6 +258,8 @@ void display(){
       textSize(25) ;
       text("Score : " + score, 450, 60) ;
       
+      if(Level == 1 || Level == 2 || Level == 3){
+      
   for(int x = 0; x <= width - SQUARE_SIZE; x += SQUARE_SIZE) {
     for(int y = 100; y <= height - SQUARE_SIZE; y += SQUARE_SIZE) {
       
@@ -173,6 +268,7 @@ void display(){
         square(x, y, 100);
     }
   }
+ }
   
    int SQUARESIZE = width/ROWS ;
   for(int i = 0 ; i < ROWS; i++){
@@ -184,12 +280,44 @@ void display(){
 
 
 void mouseClicked() {
+ if(mouseX > 20 && mouseX < 100 && mouseY > 40 && mouseY < 60 && mouseButton == LEFT){
+  choose = true;
+}
+
+  if(mouseX > 20 && mouseX < 110 && mouseY > 31 && mouseY < 51  && choose == true && mouseButton == RIGHT){
+    Level = 1;
+    m = "Easy";
+    choose = false;
+  }
+  
+  if(mouseX > 20 && mouseX < 110 && mouseY > 51 && mouseY < 71  && choose == true && mouseButton == RIGHT){
+    Level = 2;
+    m = "Medium";
+    choose = false;
+  }
+  
+  if(mouseX > 20 && mouseX < 110 && mouseY > 71 && mouseY < 91  && choose == true && mouseButton == RIGHT){
+    Level = 3;
+    m = "Hard";
+    choose = false;
+  } 
+  
+  if(mouseX > width-400 && mouseY > height - 250 && mouseX <= width - 200 && mouseY <= height - 200 && win){
+    score = 0;
+    click = 0 ;
+    time = 0 ;
+    win = false ;
+    board = new TILE[ROWS][COLS] ;
+    makeBoard() ;
+  }
+  else if(Level == 2){
   if(mouseY > 100 && mouseButton == RIGHT  && board[mouseX/50][mouseY/50 - 2].getFlagged() == false){
       
     if (click == 0){
       
      if(board[mouseX/50][mouseY/50 - 2].getBomb() == true){
         board[mouseX/50][mouseY/50 - 2].setBomb(false);
+        FLAGS--;
       }
       
      click++;
@@ -253,7 +381,6 @@ void mouseClicked() {
        reveal((mouseX-100)/50,(mouseY-200)/50 - 2);
      }  
     } 
-
   int col = mouseX/50;
   int row = (mouseY - 100)/50;
   if(lose == false){
@@ -277,9 +404,7 @@ void mouseClicked() {
      score = 0;
    }
   }
-}
-
-if(mouseButton == LEFT){
+}else if(mouseButton == LEFT){
   if(mouseY > 100 && board[mouseX/50][mouseY/50-2].getFlagged() == false){
     if(FLAGS > 0){
       color a = get(mouseX, mouseY);
@@ -300,9 +425,114 @@ if(mouseButton == LEFT){
     FLAGS++;
     }
   }
+ }
+}else if(Level == 1){
+    if(mouseY > 100){
+      board[mouseX/100][mouseY/100 - 1].setDiff(1); 
+    }
+    if(mouseY > 100 && mouseButton == RIGHT  && board[mouseX/100][mouseY/100 - 1].getFlagged() == false){
+    int col = mouseX/100;
+    int row = (mouseY - 100)/100;
+    if(lose == false){
+      if(board[col][row].getBomb() == false){ 
+        reveal(col, row);
+        if(checkFinished()){
+          win = true ;
+        }
+       }
+      else{
+        lose = true;
+      }
+     }
+       else{
+   int x = mouseX;
+   int y = mouseY;
+   if(x > width - 400 && x < width - 200 && y > 350 && y < 400){
+     retry = true; 
+     lose = false;
+     score = 0;
+   }
+  }
+    }
+    
+    if(mouseButton == LEFT){
+  if(mouseY > 100 && board[mouseX/100][mouseY/100-1].getFlagged() == false){
+    if(FLAGS > 0){
+      color a = get(mouseX, mouseY);
+      color b = color(0,255,0);
+      color c = color(0,0,255);
+      color d = color(0);
+      color e = color(255);
+      color f = color(144,238,144);
+      if(a != b && a != c && a == f){
+      board[mouseX/100][mouseY/100 - 1].setFlag(true);
+      FLAGS--;
+      }
+    }
+  }
+  else{
+    if(mouseY > 100){
+    board[mouseX/100][mouseY/100 - 1].setFlag(false);
+    FLAGS++;
+    }
+  }
+ }
+}  
+  
+  if(Level == 3){
+    if(mouseY > 100){
+      board[mouseX/25][mouseY/25 - 4].setDiff(3); 
+    }
+    if(mouseY > 100 && mouseButton == RIGHT  && board[mouseX/25][mouseY/25 - 4].getFlagged() == false){
+    int col = mouseX/25;
+    int row = (mouseY - 100)/25;
+    if(lose == false){
+      if(board[col][row].getBomb() == false){ 
+        reveal(col, row);
+        if(checkFinished()){
+          win = true ;
+        }
+       }
+      else{
+        lose = true;
+      }
+     }
+       else{
+   int x = mouseX;
+   int y = mouseY;
+   if(x > width - 400 && x < width - 200 && y > 350 && y < 400){
+     retry = true; 
+     lose = false;
+     score = 0;
+   }
+  }
+    }
+    
+    if(mouseButton == LEFT){
+  if(mouseY > 100 && board[mouseX/25][mouseY/25-4].getFlagged() == false){
+    if(FLAGS > 0){
+      color a = get(mouseX, mouseY);
+      color b = color(0,255,0);
+      color c = color(0,0,255);
+      color d = color(0);
+      color e = color(255);
+      color f = color(144,238,144);
+      if(a != b && a != c && a == f){
+      board[mouseX/25][mouseY/25 - 4].setFlag(true);
+      FLAGS--;
+      }
+    }
+  }
+  else{
+    if(mouseY > 100){
+    board[mouseX/25][mouseY/25 - 4].setFlag(false);
+    FLAGS++;
+    }
+  }
+ }
 }
-
-}
+  
+} 
 
 void calculateAdjacentMines(int x, int y){
         if(x != 0){
@@ -362,9 +592,9 @@ void reveal(int x, int y){
           reveal(x, y - 1);
       }
       if(y != COLS - 1 && !board[x][y+1].getRevealed()){
-          reveal(x, y + 1) ;                    
+          reveal(x, y + 1) ;                
       }
-   } 
+  } 
 }
 
 void keyPressed(){
