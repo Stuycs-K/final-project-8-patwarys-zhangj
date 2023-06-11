@@ -197,7 +197,9 @@ worked on the prototype
 ### 6/10/23
 Merged Optimizing Branch
 
-Updated ReadMe.md
+Updated README.md
 
 ### 6/22/23
 Added An Option To Start A New Game After Losing
+
+Updated README.md
