@@ -300,7 +300,6 @@ void display(){
 void mouseClicked() {
 
  if(mouseX > 20 && mouseX < 100 && mouseY > 40 && mouseY < 60 && mouseButton == LEFT && choose == false && lose == false && win == false){
- if(mouseX > 20 && mouseX < 100 && mouseY > 40 && mouseY < 60 && mouseButton == LEFT){
   choose = true;
   t = time + 0.1;
 }
@@ -630,8 +629,7 @@ void mouseClicked() {
     }
   }
  }
-}
-  
+} 
 } 
 
 void calculateAdjacentMines(int x, int y){
