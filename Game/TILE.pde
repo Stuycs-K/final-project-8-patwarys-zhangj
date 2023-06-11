@@ -21,9 +21,7 @@ public void setDiff(int x){
 }
 
 public void reveals(){
-  //if(flagged == false){
     revealed = true ;
-  //}
 }
 
 public boolean getFlagged(){
@@ -73,14 +71,10 @@ public void display(float x, float y, float size){
     }
     if(NumBomb == 2){
      fill(255,0,0) ;
-     textSize(size) ;
-     textAlign(LEFT) ;
      text(NumBomb + "", x, y+size) ;
     }
     if(NumBomb>2){
      fill(128,0,128) ;
-     textSize(size) ;
-     textAlign(LEFT) ;
      text(NumBomb + "", x, y+size) ;
     } 
     else{

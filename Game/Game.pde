@@ -114,6 +114,23 @@ void draw(){
         fill(0);
         stroke(0);
         triangle(width-355,height-225,width-358,height-237,width-368,height-228);
+        
+        fill(144,238,144);
+        stroke(0);
+        rect(width-390, height - 205, 180, 50);
+        
+        fill(0);
+        textSize(25) ;
+        text("NEW   GAME", width-340, height-170) ;
+        
+        ellipseMode(CORNER) ;
+        fill(255);
+        stroke(0);
+        circle(width-383, height - 190, 25);
+        
+        fill(0);
+        stroke(0);
+        triangle(width-355,height-170,width-358,height-182,width-368,height-173);
         }
       }
   }else if(win == true){
@@ -147,6 +164,8 @@ void draw(){
   }else{ 
      sec = map(time, 0, 60, 0, 6.28) - 1.57;
   }
+
+  
    ellipseMode(CENTER);
    stroke(0);
    fill(255);
@@ -279,8 +298,9 @@ void display(){
 
 
 void mouseClicked() {
-  
+
  if(mouseX > 20 && mouseX < 100 && mouseY > 40 && mouseY < 60 && mouseButton == LEFT && choose == false && lose == false && win == false){
+ if(mouseX > 20 && mouseX < 100 && mouseY > 40 && mouseY < 60 && mouseButton == LEFT){
   choose = true;
   t = time + 0.1;
 }
@@ -409,7 +429,6 @@ void mouseClicked() {
        reveal((mouseX-100)/50,(mouseY-200)/50 - 2);
      }  
     } 
-    
   int col = mouseX/50;
   int row = (mouseY - 100)/50;
   if(lose == false){
@@ -431,9 +450,16 @@ void mouseClicked() {
      retry = true; 
      lose = false;
      score = 0;
+   }else if (x > width - 400 && x < width - 200 && y > 405 && y < 455){
+     retry = false ;
+     lose = false ;
+     score = 0 ;
+     time = 0 ;
+     board = new TILE[ROWS][COLS] ;
+     makeBoard() ;
    }
   }
-}else if(mouseButton == LEFT){
+} else if(mouseButton == LEFT){
   if(mouseY > 100 && board[mouseX/50][mouseY/50-2].getFlagged() == false){
     if(FLAGS > 0){
       color a = get(mouseX, mouseY);
@@ -496,6 +522,13 @@ void mouseClicked() {
      retry = true; 
      lose = false;
      score = 0;
+   }else if (x > width - 400 && x < width - 200 && y > 405 && y < 455){
+     retry = false ;
+     lose = false ;
+     score = 0 ;
+     time = 0 ;
+     board = new TILE[ROWS][COLS] ;
+     makeBoard() ;
    }
   }
     }
@@ -564,6 +597,13 @@ void mouseClicked() {
      retry = true; 
      lose = false;
      score = 0;
+   }else if (x > width - 400 && x < width - 200 && y > 405 && y < 455){
+     retry = false ;
+     lose = false ;
+     score = 0 ;
+     time = 0 ;
+     board = new TILE[ROWS][COLS] ;
+     makeBoard() ;
    }
   }
     }
