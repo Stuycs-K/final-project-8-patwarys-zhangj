@@ -15,6 +15,6 @@ Right Click A Square To Reveal A Tile
 
 Left Click The Difficulty To Open A Dropdown Menu Of Difficulties
 
-Right Click A Difficulty In The Dropdown Menu To Change Diificulty
+Left Click A Difficulty In The Dropdown Menu To Change Diificulty
 
 Right Click A Box After Winning Or Losing To Try Again Or Start A New Game
