@@ -16,7 +16,7 @@ float sec = 0;
 boolean choose = false;
 int lvl = 0;
 String m = "Mode";
-int t = 0;
+float t = 0;
 
 void setup(){
   size(600, 600);
@@ -282,7 +282,7 @@ void mouseClicked() {
   
  if(mouseX > 20 && mouseX < 100 && mouseY > 40 && mouseY < 60 && mouseButton == LEFT && choose == false && lose == false && win == false){
   choose = true;
-  t = time + 1;
+  t = time + 0.1;
 }
 
   if(mouseX > 20 && mouseX < 110 && mouseY > 31 && mouseY < 51  && choose == true && mouseButton == LEFT && time >= t){
