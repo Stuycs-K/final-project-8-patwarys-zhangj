@@ -121,6 +121,18 @@ Updated when a mode can be chosen
 
 Implemented firstClick in Level 1 and Level 3
 
+### 6/9-11/23
+
+Updated README
+
+Updated mouseClicked for choosing a mode
+
+Merged Modes branch into main branch
+
+Fixed errors in main
+
+Updated Final Prototype
+
 ## Junling Zhang
 
 ### 5/22/23
@@ -199,7 +211,7 @@ Merged Optimizing Branch
 
 Updated README.md
 
-### 6/22/23
+### 6/11/23
 Added An Option To Start A New Game After Losing
 
 Updated README.md
