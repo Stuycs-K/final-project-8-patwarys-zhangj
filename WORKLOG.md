@@ -133,6 +133,10 @@ Fixed errors in main
 
 Updated Final Prototype
 
+### 6/12/23
+
+Worked on the Dev Log
+
 ## Junling Zhang
 
 ### 5/22/23
