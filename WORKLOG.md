@@ -219,3 +219,27 @@ Updated README.md
 Added An Option To Start A New Game After Losing
 
 Updated README.md
+
+
+
+
+
+# Dev Log
+
+## Working Features:
+    - Revealing Tiles
+    - Flagging Tiles
+    - Play Again after losing/winning game
+    - Try Again after losing game
+    - Random generation of mines in the board
+    - Timer
+    - Score
+    - Different Modes
+    - Numbers on Tiles which represent how many bombs are adjacent to a Tile
+
+## Broken Features/Bugs:
+    - We have tested our game multiple times and I don't think we have any broken features or bugs. Every feature works as intended!
+
+## Content Resources we used:
+    - Proessing reference
+    - Google's minesweeper
